@@ -9,6 +9,16 @@ import { buttonBaseStyleSchema, buttonSchema } from './button';
 import { modalSchema } from './modal';
 import { headingSchema } from './heading';
 
+// Dynamically creating color fields for a theme
+const colorFields = [
+  'Primary',
+  'Secondary',
+  'Accent',
+  'Dark',
+  'Light',
+  'Background',
+].map(variant => createColorField(`${variant} Color`, variant.toLowerCase()));
+
 const themeSchema = {
   label: 'Theme',
   type: 'object',
@@ -20,17 +30,7 @@ const themeSchema = {
       name: 'colors',
       component: 'group',
       type: 'object',
-      fields: [
-        'Primary',
-        'Secondary',
-        'Third',
-        'Accent',
-        'Dark',
-        'Light',
-        'Background',
-      ].map(variant =>
-        createColorField(`${variant} Color`, variant.toLowerCase())
-      ),
+      fields: colorFields,
     },
     {
       // Group for font settings

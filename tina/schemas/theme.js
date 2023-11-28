@@ -1,35 +1,79 @@
-// Utility function to create a color field
-const createColorField = (label, name) => ({
-  label,
-  name,
-  component: 'color',
-  type: 'string',
-  ui: {
-    component: 'color',
-    colorFormat: 'hex',
-    widget: 'sketch',
-  },
-});
+import {
+  createColorField,
+  createSelectField,
+  createFontField,
+  createModalStyleField,
+  createTextTransformField,
+  COLOR_FORMAT,
+  WIDGET,
+} from '../tinaUtilities';
 
-// Utility function to create a select field
-const createSelectField = (label, name, options) => ({
-  label,
-  name,
-  component: 'select',
-  type: 'string',
-  options,
-});
+// Define the fields for the Modal component
+const modalSchema = {
+  label: 'Modal',
+  name: 'modal',
+  component: 'group',
+  type: 'object',
+  fields: [
+    createModalStyleField('dialog', 'Dialog', [
+      createColorField('Background Color', 'bg'),
+      createColorField('Text Color', 'color'),
+      {
+        label: 'Border Radius',
+        name: 'borderRadius',
+        component: 'text',
+        type: 'string',
+      },
+      // Add other dialog style properties as needed
+    ]),
+    createModalStyleField('dialogContainer', 'Dialog Container', [
+      {
+        label: 'Display',
+        name: 'display',
+        component: 'text',
+        type: 'string',
+      },
+      {
+        label: 'Align Items',
+        name: 'alignItems',
+        component: 'text',
+        type: 'string',
+      },
+      {
+        label: 'Justify Content',
+        name: 'justifyContent',
+        component: 'text',
+        type: 'string',
+      },
+      // Add other dialog container style properties as needed
+    ]),
+    createModalStyleField('overlay', 'Overlay', [
+      {
+        label: 'Background',
+        name: 'bg',
+        component: 'color',
+        type: 'string',
+        ui: {
+          component: 'color',
+          colorFormat: 'rgba',
+          widget: 'sketch',
+        },
+      },
+      // Add other overlay style properties as needed
+    ]),
+  ],
+};
 
-// Utility function to create a font field
-const createFontField = (name, label, description) => ({
-  type: 'string',
-  name,
-  label,
-  description,
-});
-
-const COLOR_FORMAT = 'hex';
-const WIDGET = 'sketch';
+const buttonDefaultPropsSchema = {
+  label: 'Default Properties',
+  name: 'defaultProps',
+  component: 'group',
+  type: 'object',
+  fields: [
+    createSelectField('Size', 'size', ['sm', 'md', 'lg', 'xl']), // Add sizes as per your theme's specification
+    // Add other default properties as needed
+  ],
+};
 
 const buttonSchema = {
   type: 'object',
@@ -47,7 +91,36 @@ const buttonSchema = {
         createColorField('Text Color', 'color'),
       ],
     },
+    buttonDefaultPropsSchema, // Add the default properties schema here
     // ... other style fields
+  ],
+};
+
+// Define the fields for the Heading component
+const headingSchema = {
+  label: 'Heading',
+  name: 'heading',
+  component: 'group',
+  type: 'object',
+  fields: [
+    {
+      label: 'Base Style',
+      name: 'baseStyle',
+      component: 'group',
+      type: 'object',
+      fields: [
+        createSelectField('Font Weight', 'fontWeight', [
+          'normal',
+          'bold',
+          'lighter',
+          'bolder',
+        ]),
+        createTextTransformField('Text Transform', 'textTransform'),
+        createColorField('Color', 'color'), // Assumes color refers to your theme colors
+        // Add other base style properties as needed
+      ],
+    },
+    // You can add variants here later as needed
   ],
 };
 
@@ -146,6 +219,9 @@ const themeSchema = {
     },
   ],
 };
+
+themeSchema.fields.push(modalSchema);
+themeSchema.fields.push(headingSchema);
 
 // Apply color format and widget settings to all color fields
 themeSchema.fields[0].fields = themeSchema.fields[0].fields.map(field => ({

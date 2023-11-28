@@ -5,7 +5,6 @@ import largeContentContainer from './schemas/largeContentContainer';
 import themeSchema from './schemas/theme';
 import sideBySide from './schemas/sideBySide';
 import siteConfigSchema from './schemas/siteConfig';
-// import json from 'content/test.json';
 
 // Your hosting provider likely exposes this as an environment variable
 const branch = 'crazies+templating-branch';

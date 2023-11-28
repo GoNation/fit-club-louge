@@ -1,128 +1,13 @@
 import {
   createColorField,
-  createSelectField,
   createFontField,
-  createModalStyleField,
-  createTextTransformField,
   COLOR_FORMAT,
   WIDGET,
 } from '../tinaUtilities';
 
-// Define the fields for the Modal component
-const modalSchema = {
-  label: 'Modal',
-  name: 'modal',
-  component: 'group',
-  type: 'object',
-  fields: [
-    createModalStyleField('dialog', 'Dialog', [
-      createColorField('Background Color', 'bg'),
-      createColorField('Text Color', 'color'),
-      {
-        label: 'Border Radius',
-        name: 'borderRadius',
-        component: 'text',
-        type: 'string',
-      },
-      // Add other dialog style properties as needed
-    ]),
-    createModalStyleField('dialogContainer', 'Dialog Container', [
-      {
-        label: 'Display',
-        name: 'display',
-        component: 'text',
-        type: 'string',
-      },
-      {
-        label: 'Align Items',
-        name: 'alignItems',
-        component: 'text',
-        type: 'string',
-      },
-      {
-        label: 'Justify Content',
-        name: 'justifyContent',
-        component: 'text',
-        type: 'string',
-      },
-      // Add other dialog container style properties as needed
-    ]),
-    createModalStyleField('overlay', 'Overlay', [
-      {
-        label: 'Background',
-        name: 'bg',
-        component: 'color',
-        type: 'string',
-        ui: {
-          component: 'color',
-          colorFormat: 'rgba',
-          widget: 'sketch',
-        },
-      },
-      // Add other overlay style properties as needed
-    ]),
-  ],
-};
-
-const buttonDefaultPropsSchema = {
-  label: 'Default Properties',
-  name: 'defaultProps',
-  component: 'group',
-  type: 'object',
-  fields: [
-    createSelectField('Size', 'size', ['sm', 'md', 'lg', 'xl']), // Add sizes as per your theme's specification
-    // Add other default properties as needed
-  ],
-};
-
-const buttonSchema = {
-  type: 'object',
-  fields: [
-    createColorField('Background', 'bg'),
-    createColorField('Border Color', 'borderColor'),
-    createSelectField('Font Weight', 'fontWeight', ['normal', 'bold']),
-    {
-      label: 'Hover',
-      name: '_hover',
-      component: 'group',
-      type: 'object',
-      fields: [
-        createColorField('Background', 'bg'),
-        createColorField('Text Color', 'color'),
-      ],
-    },
-    buttonDefaultPropsSchema, // Add the default properties schema here
-    // ... other style fields
-  ],
-};
-
-// Define the fields for the Heading component
-const headingSchema = {
-  label: 'Heading',
-  name: 'heading',
-  component: 'group',
-  type: 'object',
-  fields: [
-    {
-      label: 'Base Style',
-      name: 'baseStyle',
-      component: 'group',
-      type: 'object',
-      fields: [
-        createSelectField('Font Weight', 'fontWeight', [
-          'normal',
-          'bold',
-          'lighter',
-          'bolder',
-        ]),
-        createTextTransformField('Text Transform', 'textTransform'),
-        createColorField('Color', 'color'), // Assumes color refers to your theme colors
-        // Add other base style properties as needed
-      ],
-    },
-    // You can add variants here later as needed
-  ],
-};
+import { buttonBaseStyleSchema, buttonSchema } from './button';
+import { modalSchema } from './modal';
+import { headingSchema } from './heading';
 
 const themeSchema = {
   label: 'Theme',
@@ -189,6 +74,7 @@ const themeSchema = {
       component: 'group',
       type: 'object',
       fields: [
+        buttonBaseStyleSchema,
         {
           label: 'Default Button',
           name: 'default',

@@ -10,7 +10,6 @@ import {
 } from 'react-icons/ai';
 import { GrAnnounce } from 'react-icons/gr';
 import buildAvatar from 'helpers/general/buildAvatar';
-import { gnPowerBlack } from 'assets/gn-power-black.svg';
 import printAddress from 'helpers/printing/printAddress';
 import printMinimalAddress from 'helpers/printing/printMinimalAddress';
 import trimURL from '../../helpers/general/trimURL';

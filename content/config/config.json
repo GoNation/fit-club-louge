@@ -1,0 +1,104 @@
+{
+  "businessId": "bzn-aGKtaV_DQoio5F49wltPhQ",
+  "domain": "https://craziesawards.com/",
+  "filteredOutGalleryImages": [
+    "Website Photos, Shouts, shouts, shout, website photos"
+  ],
+  "navigationSettings": {
+    "displayFixedBarCTA": true,
+    "storyName": "nav-cta",
+    "label": "BUY TICKETS | CRAZIES 2023 ",
+    "url": "https://web.ctrestaurant.org/events/2023-CRAzies-Awards--895/details"
+  },
+  "routes": [
+    {
+      "name": "Home",
+      "path": "/",
+      "pageDescription": "Vote for Connecticut's Best! CRAZIES Awards 2023 Finalists Revealed. Join us on Dec. 4 at Foxwoods Resort Casino. Cast Your Vote Now!",
+      "customPageHero": "hero",
+      "hidePageHero": true,
+      "hidden": true,
+      "fetchingStrategy": "static",
+      "dataTypes": {
+        "stories": true,
+        "shout": true,
+        "poweredImages": true,
+        "about": true,
+        "menuInventory": true,
+        "events": true
+      },
+      "layout": "homepageLayout"
+    },
+    {
+      "name": "Vote Now",
+      "path": "https://www.ctrestaurant.org/vote.html",
+      "fetchingStrategy": "static"
+    },
+    {
+      "name": "Get Tickets",
+      "path": "https://web.ctrestaurant.org/events/2023-CRAzies-Awards--895/details",
+      "fetchingStrategy": "static"
+    },
+    {
+      "name": "Book Room",
+      "path": "https://book.passkey.com/gt/219497831?gtid=ff8e8f6645bcab39600f29fa037ba404",
+      "fetchingStrategy": "static"
+    },
+    {
+      "name": "Nominees",
+      "path": "/nominees",
+      "pageDescription": "CRAZIES 2023 Nominees - Discover the Culinary Stars 🌟 | Meet the talented nominees in categories like Chef, Baker, Bartender, and more! Celebrate excellence with us.",
+      "customPageHero": "nominees-pagehero",
+      "hidePageHero": false,
+      "fetchingStrategy": "static",
+      "dataTypes": {
+        "stories": true,
+        "poweredImages": true,
+        "about": true
+      },
+      "layout": "nomineesLayout"
+    },
+    {
+      "name": "Lineup",
+      "path": "/events",
+      "pageDescription": "Explore the Exciting CRAZIES 2023 Events - Meet the Culinary Stars, Nominees, and Categories. Join us in celebrating excellence in Connecticut's culinary scene!",
+      "hidePageHero": true,
+      "fetchingStrategy": "static",
+      "dataTypes": {
+        "about": true,
+        "events": true
+      },
+      "layout": "eventsLayout"
+    },
+    {
+      "name": "Event Gallery",
+      "path": "/gallery",
+      "pageDescription": "Explore the Glitz and Glamour of Past CRAZIES Events! Step into the world of culinary excellence through captivating photos from previous CRAZIES galas. ",
+      "hidePageHero": true,
+      "fetchingStrategy": "static",
+      "dataTypes": {
+        "poweredImages": false,
+        "about": true,
+        "gallery": true
+      },
+      "layout": "galleryLayout"
+    },
+    {
+      "name": "Sponsors",
+      "path": "/sponsors",
+      "hidePageHero": true,
+      "fetchingStrategy": "static",
+      "dataTypes": {
+        "stories": true,
+        "poweredImages": true,
+        "about": true
+      },
+      "layout": "sponsorsLayout"
+    },
+    {
+      "name": "CRA",
+      "path": "https://www.ctrestaurant.org/",
+      "fetchingStrategy": "static"
+    }
+  ]
+}

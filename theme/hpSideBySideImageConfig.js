@@ -1,0 +1,85 @@
+// ChakraStylingConfig.js
+export const hpSideBySideImageConfig = {
+  reversed: true,
+  multiFontConfig: {
+    active: false,
+  },
+  sideBySideImageContainerStyle: {
+    bg: 'dark',
+    backgroundImage: `url("https://www.transparenttextures.com/patterns/black-lozenge.png")`,
+    py: { base: 12, lg: 32, xl: 40 },
+    px: { base: 2, md: '2rem', lg: '3rem' },
+  },
+  innerContainer: {
+    display: { base: 'block', lg: 'grid' },
+    gridTemplateColumns: { lg: 'repeat(2, 1fr)' },
+    gap: { base: '0', md: '2rem' },
+
+    alignItems: 'center',
+    maxWidth: {
+      base: '100%',
+      md: '80%',
+      lg: '80%',
+      xl: '80%',
+    },
+    m: 'auto',
+  },
+  contentConfig: {
+    showStar: false,
+    containerStyle: {
+      display: 'flex',
+      flexDirection: 'column',
+      alignItems: 'center',
+      justifyContent: 'center',
+      py: 8,
+      px: ['2rem', 8, 24],
+      bg: 'dark',
+      border: '1px solid white',
+      mb: [0, 0, 12, 0],
+    },
+    titleStyle: {
+      color: 'white',
+      fontFamily: 'heading',
+      fontSize: { base: '2xl', md: '3xl' },
+      fontWeight: 'bold',
+      textTransform: 'uppercase',
+      textAlign: 'center',
+      zIndex: 1,
+      position: 'relative',
+      letterSpacing: 4,
+    },
+    subtitleStyle: {
+      color: 'white',
+      fontFamily: 'body',
+      fontSize: ['lg', 'xl'],
+      textTransform: 'uppercase',
+      textAlign: 'center',
+    },
+    bodyContainerStyle: {
+      mb: '1rem',
+      mt: 4,
+      textAlign: 'center',
+      maxWidth: '44rem',
+      color: 'white',
+      fontSize: 'md',
+      my: 8,
+      fontWeight: 400,
+      fontFamily: 'body',
+    },
+  },
+  imageConfig: {
+    size: 1200,
+    containerStyle: {
+      width: '100%',
+      height: [500, 500, 700],
+      padding: [0, 0],
+      my: [8, 0],
+    },
+    relativeContainerStyle: {
+      position: 'relative',
+      height: '100%',
+      width: '100%',
+    },
+    imageStyle: {},
+  },
+};

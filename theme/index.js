@@ -1,5 +1,4 @@
 import { extendTheme } from '@chakra-ui/react';
-import config from 'content/config/config.json';
 
 const theme = extendTheme({
   colors: {

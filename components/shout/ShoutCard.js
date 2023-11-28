@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from 'react';
 import Link from 'next/link';
-import AppContext from 'context/AppContext';
 import Image from 'next/image';
 import dayjs from 'dayjs';
 import {

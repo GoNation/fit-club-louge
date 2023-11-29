@@ -5,8 +5,6 @@ import config from 'content/config/config.json';
 
 const { fonts } = config;
 
-import '../styles/globals.css';
-
 function MyApp({ Component, pageProps }) {
   const { googleFontsUrl, customFontName } = fonts;
 

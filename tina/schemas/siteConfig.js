@@ -110,14 +110,20 @@ const siteConfigSchema = {
         },
         {
           type: 'string',
+          name: 'seoPageTitle',
+          label: 'SEO Page Title',
+          description: 'Page title for SEO purposes.',
+        },
+        {
+          type: 'string',
           name: 'pageDescription',
           label: 'Page Description',
           description: 'Description of the page for SEO purposes.',
           //   make a max character length of 160 characters
           ui: {
             validate: (value, data) => {
-              if (value?.length > 180) {
-                return 'Page description must be less than 160 characters';
+              if (value?.length > 240) {
+                return 'Page description must be less than 240 characters';
               }
             },
           },

@@ -89,14 +89,17 @@ const Navigation = ({
           px={2}
           textTransform="uppercase"
           display={route.hidden ? 'none' : 'block'}
-          bg={route.isPrimaryCalledToAction ? 'white' : 'transparent'}
-          color="primary"
+          bg={route.isPrimaryCalledToAction ? 'white' : 'white'}
+          color="dark"
           borderWidth={route.isPrimaryCalledToAction ? '1px' : '0'}
-          borderColor="primary"
+          borderColor="none"
           fontFamily="heading"
-          fontSize={['xs', 'xs', 'xs', 'xs', 'md']}
+          fontSize={['xs', 'xs', 'xs', 'xs', 'lg']}
+          fontWeight="bold"
+          letterSpacing={1}
           _hover={{
             textDecoration: 'underline',
+            color: 'primary',
           }}
         />
       )}
@@ -169,10 +172,12 @@ const Navigation = ({
         position={navPosition}
         w="full"
         zIndex={50}
-        bg={hasScrolled() ? 'rgba(0, 0, 0, 0.8)' : bgColor}
+        bg={hasScrolled() ? bgColor : bgColor}
         transition="background-color 0.3s ease-in-out"
-        borderBottom={hasScrolled() && '1px solid'}
-        borderColor={hasScrolled() && 'primary'}
+        // borderBottom={hasScrolled() && '1px solid'}
+        // borderColor={hasScrolled() && 'primary'}
+        px={{ base: 0, md: 2, lg: 4 }}
+        py={{ base: 0 }}
       >
         {navigationSettings?.displayFixedBarCTA && (
           <CTABar content={navigationSettings?.displayFixedBarCTA} />

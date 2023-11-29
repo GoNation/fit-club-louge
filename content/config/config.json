@@ -1,18 +1,18 @@
 {
-  "businessId": "bzn-aGKtaV_DQoio5F49wltPhQ",
+  "businessId": "bzn-uUNeBnhkSVm7E-XjRlpGLA",
   "fonts": {
-    "googleFontsUrl": "https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;500;700&display=swap",
-    "customFontName": "digital"
+    "googleFontsUrl": "https://fonts.googleapis.com/css2?family=Cabin:wght@400;700&family=Roboto:wght@400;500;700&display=swap",
+    "customFontName": ""
   },
-  "domain": "https://craziesawards.com/",
+  "domain": "https://fitclublounge.com",
   "filteredOutGalleryImages": [
     "Website Photos, Shouts, shouts, shout, website photos"
   ],
   "navigationSettings": {
-    "navLayout": "logoCentered",
-    "navPosition": "fixed",
+    "navLayout": "logoLeft",
+    "navPosition": "relative",
     "hamburgerSettings": {
-      "hamburgerColor": "#04F2E9",
+      "hamburgerColor": "#B52C2F",
       "hamburgerSize": 24,
       "hamburgerVisibility": "tablet"
     },
@@ -27,7 +27,8 @@
     {
       "name": "Home",
       "path": "/",
-      "pageDescription": "Vote for Connecticut's Best! CRAZIES Awards 2023 Finalists Revealed. Join us on Dec. 4 at Foxwoods Resort Casino. Cast Your Vote Now!",
+      "seoPageTitle": "Welcome to Fit Club Lounge - Fairfield, CT",
+      "pageDescription": "Welcome to Fit Club Lounge, the premier event space in Fairfield, CT, offering a lively coffee bar, smoothies, Italian Ice, and more. Perfect for all occasions and age groups.",
       "customPageHero": "hero",
       "hidePageHero": true,
       "hidden": true,
@@ -43,75 +44,105 @@
       "layout": "homepageLayout"
     },
     {
-      "name": "Vote Now",
-      "path": "https://www.ctrestaurant.org/vote.html",
-      "fetchingStrategy": "static"
+      "name": "About",
+      "path": "/about",
+      "seoPageTitle": "About Fit Club Lounge - Fairfield, CT",
+      "pageDescription": "Discover the vibrant world of Fit Club Lounge in Fairfield, CT. Learn about our unique event space, energetic gym area, and how we make business and entertaining easy.",
+      "customPageHero": "about-pagehero",
+      "fetchingStrategy": "static",
+      "dataTypes": {
+        "stories": false,
+        "poweredImages": true,
+        "about": true
+      },
+      "layout": "aboutLayout"
     },
     {
-      "name": "Get Tickets",
-      "path": "https://web.ctrestaurant.org/events/2023-CRAzies-Awards--895/details",
-      "fetchingStrategy": "static"
-    },
-    {
-      "name": "Book Room",
-      "path": "https://book.passkey.com/gt/219497831?gtid=ff8e8f6645bcab39600f29fa037ba404",
-      "fetchingStrategy": "static"
-    },
-    {
-      "name": "Nominees",
-      "path": "/nominees",
-      "pageDescription": "CRAZIES 2023 Nominees - Discover the Culinary Stars 🌟 | Meet the talented nominees in categories like Chef, Baker, Bartender, and more! Celebrate excellence with us.",
-      "customPageHero": "nominees-pagehero",
-      "hidePageHero": false,
+      "name": "Kids' Parties",
+      "path": "/kids-parties",
+      "seoPageTitle": "Kids' Parties at Fit Club Lounge - Fairfield, CT",
+      "pageDescription": "Host unforgettable kids' parties at Fit Club Lounge in Fairfield, CT. Our space is filled with age-appropriate games and activities. Packages start at just $299 for one room.",
+      "customPageHero": "kids-parties-pagehero",
       "fetchingStrategy": "static",
       "dataTypes": {
         "stories": true,
         "poweredImages": true,
         "about": true
       },
-      "layout": "nomineesLayout"
+      "layout": "kidsPartiesLayout"
     },
     {
-      "name": "Lineup",
-      "path": "/events",
-      "pageDescription": "Explore the Exciting CRAZIES 2023 Events - Meet the Culinary Stars, Nominees, and Categories. Join us in celebrating excellence in Connecticut's culinary scene!",
-      "hidePageHero": true,
+      "name": "Corporate Events",
+      "path": "/corporate-events",
+      "seoPageTitle": "Corporate Events at Fit Club Lounge - Fairfield, CT",
+      "pageDescription": "Elevate your corporate events at Fit Club Lounge in Fairfield, CT. Our spacious facility is ideal for Annual Meetings, Seminars, Trade Shows, Holiday Parties, Employee Training, Team Building, and more. Starting at $3,000.",
+      "customPageHero": "corporate-events-pagehero",
       "fetchingStrategy": "static",
       "dataTypes": {
+        "stories": true,
+        "poweredImages": true,
+        "about": true
+      },
+      "layout": "corporateEventsLayout"
+    },
+    {
+      "name": "Networking Events",
+      "path": "/corporate-events",
+      "seoPageTitle": "Networking Events at Fit Club Lounge - Fairfield, CT",
+      "pageDescription": "Connect and network at Fit Club Lounge in Fairfield, CT. Our versatile event space is perfect for hosting networking events and gatherings of all sizes.",
+      "customPageHero": "networking-events-pagehero",
+      "fetchingStrategy": "static",
+      "dataTypes": {
+        "stories": true,
+        "poweredImages": true,
+        "about": true
+      },
+      "layout": "networkingEventsLayout"
+    },
+    {
+      "name": "Special Events",
+      "path": "/special-events",
+      "seoPageTitle": "Special Events at Fit Club Lounge - Fairfield, CT",
+      "pageDescription": "Make your special events unforgettable at Fit Club Lounge in Fairfield, CT. Our dynamic space is perfect for hosting a wide range of special occasions.",
+      "customPageHero": "special-events-pagehero",
+      "fetchingStrategy": "static",
+      "dataTypes": {
+        "stories": true,
+        "poweredImages": true,
         "about": true,
         "events": true
       },
-      "layout": "eventsLayout"
+      "layout": "specialEventsLayout"
     },
     {
-      "name": "Event Gallery",
+      "name": "Gallery",
       "path": "/gallery",
-      "pageDescription": "Explore the Glitz and Glamour of Past CRAZIES Events! Step into the world of culinary excellence through captivating photos from previous CRAZIES galas. ",
-      "hidePageHero": true,
-      "fetchingStrategy": "static",
-      "dataTypes": {
-        "poweredImages": false,
-        "about": true,
-        "gallery": true
-      },
-      "layout": "galleryLayout"
-    },
-    {
-      "name": "Sponsors",
-      "path": "/sponsors",
-      "hidePageHero": true,
+      "seoPageTitle": "Explore Fit Club Lounge Gallery - Fairfield, CT",
+      "pageDescription": "Browse through our gallery to see the vibrant and exciting events held at Fit Club Lounge in Fairfield, CT. Get inspired for your next gathering.",
+      "customPageHero": "special-events-pagehero",
       "fetchingStrategy": "static",
       "dataTypes": {
         "stories": true,
         "poweredImages": true,
-        "about": true
+        "about": true,
+        "gallery": true
       },
-      "layout": "sponsorsLayout"
+      "layout": "galleryEventsLayout"
     },
     {
-      "name": "CRA",
-      "path": "https://www.ctrestaurant.org/",
-      "fetchingStrategy": "static"
+      "name": "Contact",
+      "path": "/contact",
+      "seoPageTitle": "Contact Fit Club Lounge - Fairfield, CT",
+      "pageDescription": "Contact Fit Club Lounge in Fairfield, CT, at 1496 Post Rd, Fairfield, CT 06824-5911, USA. Call us at 203-246-8058 to inquire about our event space and services.",
+      "customPageHero": "contact-pagehero",
+      "fetchingStrategy": "static",
+      "dataTypes": {
+        "stories": true,
+        "poweredImages": true,
+        "about": true,
+        "gallery": true
+      },
+      "layout": "contactEventsLayout"
     }
   ]
 }

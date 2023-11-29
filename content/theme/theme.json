@@ -10,18 +10,18 @@
     }
   },
   "colors": {
-    "primary": "#04F2E9",
-    "secondary": "#299FFF",
-    "accent": "#04F2E9",
+    "primary": "#B52C2C",
+    "secondary": "#B52C2C",
+    "accent": "#B52C2C",
     "dark": "#00001E",
     "light": "#CECECE",
     "background": "#F5E6D9"
   },
   "fonts": {
-    "body": "Open Sans, system-ui, sans-serif",
-    "heading": "Open Sans, system-ui, sans-serif",
-    "links": "Open Sans, system-ui, sans-serif",
-    "accent": "digital, system-ui, sans-serif"
+    "body": "Roboto, system-ui, sans-serif",
+    "heading": "Roboto, system-ui, sans-serif",
+    "links": "Roboto, system-ui, sans-serif",
+    "accent": "Roboto, system-ui, sans-serif"
   },
   "styles": {
     "global": {

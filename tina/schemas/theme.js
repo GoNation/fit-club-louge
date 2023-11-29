@@ -3,111 +3,44 @@ import {
   createFontField,
   COLOR_FORMAT,
   WIDGET,
+  spacingSchema,
+  shadowSchema,
 } from '../tinaUtilities';
 
 import { buttonBaseStyleSchema, buttonSchema } from './button';
 import { modalSchema } from './modal';
 import { headingSchema } from './heading';
-
-// Dynamically creating color fields for a theme
-const colorFields = [
-  'Primary',
-  'Secondary',
-  'Accent',
-  'Dark',
-  'Light',
-  'Background',
-].map(variant => createColorField(`${variant} Color`, variant.toLowerCase()));
+import { colorSchema } from './colors';
+import { fontSchema } from './fonts';
+import { globalStylesSchema } from './globalStyles';
 
 const themeSchema = {
   label: 'Theme',
   type: 'object',
   name: 'theme',
   fields: [
+    colorSchema,
+    fontSchema,
+    globalStylesSchema,
+    buttonSchema,
     {
-      // Group for color settings
-      label: 'Colors',
-      name: 'colors',
-      component: 'group',
-      type: 'object',
-      fields: colorFields,
+      ...modalSchema,
+      description: 'Configure the modal styles for your theme.',
     },
     {
-      // Group for font settings
-      label: 'Fonts',
-      name: 'fonts',
-      component: 'group',
-      type: 'object',
-      fields: [
-        createFontField('body', 'Body', 'Font for body text'),
-        createFontField('heading', 'Heading', 'Font for headings'),
-        createFontField('links', 'Links', 'Font for links'),
-        createFontField('accent', 'Accent', 'Font for accents'),
-      ],
+      ...headingSchema,
+      description: 'Configure the heading styles for your theme.',
     },
     {
-      // Group for style settings
-      label: 'Styles',
-      name: 'styles',
+      label: 'Design Tokens',
+      name: 'designTokens',
       component: 'group',
       type: 'object',
-      fields: [
-        {
-          type: 'object',
-          name: 'global',
-          label: 'Global Styles',
-          fields: [
-            // Add specific style fields here
-            {
-              type: 'string',
-              name: 'backgroundColor',
-              label: 'Background Color',
-              // You can reference a color from your color settings if needed
-            },
-          ],
-        },
-      ],
-    },
-    {
-      label: 'Buttons',
-      name: 'buttons',
-      component: 'group',
-      type: 'object',
-      fields: [
-        buttonBaseStyleSchema,
-        {
-          label: 'Default Button',
-          name: 'default',
-          ...buttonSchema,
-        },
-        {
-          label: 'Primary Button',
-          name: 'primary',
-          ...buttonSchema,
-        },
-        {
-          label: 'Primary Filled Button',
-          name: 'primaryFilled',
-          ...buttonSchema,
-        },
-        {
-          label: 'Outline Button',
-          name: 'outline',
-          ...buttonSchema,
-        },
-        {
-          label: 'Unset Button',
-          name: 'unset',
-          ...buttonSchema,
-        },
-        // ... other button types
-      ],
+      description: 'Configure the design tokens for your theme.',
+      fields: [spacingSchema, shadowSchema],
     },
   ],
 };
-
-themeSchema.fields.push(modalSchema);
-themeSchema.fields.push(headingSchema);
 
 // Apply color format and widget settings to all color fields
 themeSchema.fields[0].fields = themeSchema.fields[0].fields.map(field => ({

@@ -7,7 +7,7 @@ import sideBySide from './schemas/sideBySide';
 import siteConfigSchema from './schemas/siteConfig';
 
 // Your hosting provider likely exposes this as an environment variable
-const branch = 'main';
+const branch = 'fit-club-stray';
 
 export default defineConfig({
   branch,

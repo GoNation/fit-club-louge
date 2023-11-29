@@ -5,7 +5,7 @@ import componentFactory from 'components/ComponentFactory';
 import client from 'tina/__generated__/client';
 import { fetchPageData } from 'helpers/fetchPageData';
 
-const DynamicPage = ({ pageData, pageContent }) => {
+const DynamicPage = ({ pageData, pageContent, siteConfig }) => {
   const [layout, setLayout] = useState(null);
 
   useEffect(() => {
@@ -34,7 +34,7 @@ const DynamicPage = ({ pageData, pageContent }) => {
       {layout ? (
         layout.map((component, index) => (
           <React.Fragment key={index}>
-            {componentFactory(component, pageContent)}
+            {componentFactory(component, pageContent, siteConfig)}
           </React.Fragment>
         ))
       ) : (

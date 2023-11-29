@@ -1,7 +1,7 @@
 const shadowyContentContainerWithBg = {
   container: {
     bgSize: 'cover',
-    py: 32,
+    py: [32, '300px', '400px'],
     bgAttachment: ['unset', '', '', 'fixed'],
   },
   innerBox: {
@@ -29,17 +29,19 @@ const shadowyContentContainerWithBg = {
     left: { md: '8' },
   },
   heading: {
-    mb: 8,
-    fontSize: { base: '3xl', md: '3xl' },
+    // mb: 8,
+    fontSize: { base: '3xl', md: '6xl' },
     fontFamily: 'heading',
     textTransform: 'uppercase',
     color: 'white',
     textAlign: 'left',
+    fontWeight: 'bold',
   },
   subtitle: {
-    mb: 3,
+    mb: 8,
     fontSize: { base: 'xl', lg: '2xl' },
     fontWeight: 'bold',
+    color: 'white',
   },
   body: {
     maxW: 400,

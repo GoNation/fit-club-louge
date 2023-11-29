@@ -2,7 +2,7 @@ import React from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
 import Body from './Body';
-import { Box, Heading, Text, LinkOverlay } from '@chakra-ui/react';
+import { Box, Heading, Text, LinkOverlay, Button } from '@chakra-ui/react';
 
 const clickableBoxStyles = {
   card: {
@@ -13,6 +13,7 @@ const clickableBoxStyles = {
     shadow: 'md',
     _groupHover: { transform: 'scale(1.10)' },
     height: [800, 800, '100%'],
+    px: 4,
   },
   imageBox: {
     position: 'relative',
@@ -21,7 +22,7 @@ const clickableBoxStyles = {
   subtitle: {
     as: 'h2',
     size: 'sm',
-    color: 'white',
+    color: 'primary',
     mt: 2,
     textTransform: 'uppercase',
     borderBottom: '1px solid',
@@ -38,15 +39,13 @@ const clickableBoxStyles = {
     fontSize: { base: 'lg' },
     fontWeight: 'bold',
     textTransform: 'uppercase',
-    color: 'white',
+    color: 'dark',
     mb: 4,
   },
   body: {
     fontSize: { base: 'md' },
-    color: 'white',
-    p: {
-      color: 'white',
-    },
+    color: 'dark',
+    maxWidth: 'lg',
   },
 };
 
@@ -77,6 +76,17 @@ const ClickableBox = ({ story, noClick, idx }) => {
         <Heading {...clickableBoxStyles.title}>{title}</Heading>
 
         <Body body={body} lineHeight={[2, 1.5]} {...clickableBoxStyles.body} />
+        <Link href={linkAddress}>
+          <Button
+            variant="unset"
+            textDecoration={'underline'}
+            px={0}
+            color={'primary'}
+            _hover={{ textDecoration: 'none', color: 'dark' }}
+          >
+            {linkTitle}
+          </Button>
+        </Link>
       </Box>
     </Box>
   );

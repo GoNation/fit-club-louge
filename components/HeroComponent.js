@@ -1,5 +1,5 @@
 import React from 'react';
-import { Box } from '@chakra-ui/react';
+import { Box, Heading } from '@chakra-ui/react';
 import { BsChevronDown } from 'react-icons/bs';
 import { Carousel } from 'react-responsive-carousel';
 import Image from 'next/image';
@@ -42,9 +42,6 @@ const HeroComponent = ({ story, business, config, event, shout }) => {
       <LocalVideo src={video} />
       <Box {...heroImageContentContainer}>
         <Box width={'100%'}>
-          <Box mb={4}>
-            <Image src={'/logobar.png'} width={800} height={100} />
-          </Box>
           <HeroContentLink
             linkTitle={'Buy Tickets'}
             linkAddress={
@@ -52,15 +49,6 @@ const HeroComponent = ({ story, business, config, event, shout }) => {
             }
           />
         </Box>
-      </Box>
-      <Box
-        position={'absolute'}
-        bottom={0}
-        display={['none', 'none', 'flex']}
-        justifyContent={'center'}
-        width={'100%'}
-      >
-        <Image src={'/logobar.png'} width={800} height={100} />
       </Box>
     </Box>
   );
@@ -77,6 +65,9 @@ const HeroComponent = ({ story, business, config, event, shout }) => {
       </Box>
     </Box>
   );
+
+  const { title, linkAddress, linkTitle, subtitle } = extractStory(story);
+  console.log('extractStory(story)', extractStory(story));
 
   const renderHeroContent = () => (
     <Box {...heroContainerStyle}>
@@ -96,11 +87,28 @@ const HeroComponent = ({ story, business, config, event, shout }) => {
               {...heroImageStyle}
             />
             <Box {...heroImageContentContainer}>
+              <Heading
+                color={'white'}
+                fontSize={['lg', 'xl', '8xl']}
+                textShadow={'0 0 10px rgba(0,0,0,0.5)'}
+                as="h1"
+                fontWeight={'light'}
+              >
+                {title}
+              </Heading>
+              <Heading
+                color={'white'}
+                fontSize={['lg', 'xl', '5xl']}
+                textShadow={'0 0 10px rgba(0,0,0,0.5)'}
+                as="h2"
+                fontWeight={'bold'}
+                mb={8}
+              >
+                {subtitle}
+              </Heading>
               <HeroContentLink
-                linkTitle={'Buy Tickets'}
-                linkAddress={
-                  'https://web.ctrestaurant.org/events/2023-CRAzies-Awards--895/details'
-                }
+                linkTitle={linkTitle}
+                linkAddress={linkAddress}
               />
             </Box>
           </Box>

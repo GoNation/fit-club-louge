@@ -2,7 +2,6 @@ export const heroConfig = {
   showLogo: false,
   shouldShowPhoneAndDirections: false,
   shouldShowArrow: false,
-  video: '/c5.mp4',
   //   videoId: 'sBg2UAHPhVc',
 
   arrowConfig: {
@@ -32,7 +31,7 @@ export const heroConfig = {
   // Hero container styles
   heroContainerStyle: {
     position: 'relative',
-    height: ['100vh'],
+    height: ['auto'],
 
     // background: 'black',
   },
@@ -79,7 +78,7 @@ export const heroConfig = {
   // Hero image styles
   heroImageStyle: {
     width: '100%', // Full width
-    height: '90vh', // Full height
+    height: '80vh', // Full height
     objectFit: 'cover',
     objectPosition: 'center',
   },
@@ -100,6 +99,8 @@ export const heroConfig = {
 
   heroImageContainer: {
     position: 'relative',
+    height: '100%',
+    zIndex: 99999999,
   },
   heroImageContentContainer: {
     position: 'absolute',
@@ -112,12 +113,13 @@ export const heroConfig = {
     p: 2,
     pb: [8, 8, 12],
     textAlign: 'center',
-    display: ['flex', 'flex', 'none'],
-    justifyContent: 'stretch',
-    alignItems: 'flex-end',
+    display: ['flex', 'flex'],
+    justifyContent: 'center',
+    alignItems: 'center',
     flexWrap: 'wrap',
+    flexDirection: 'column',
     width: '100%',
-    height: '100vh',
+    zIndex: 99999999,
   },
 
   heroTitle: {

@@ -23,6 +23,7 @@ import MultiStoryHero from './story-components/MultiStoryHero';
 import AlbumGallery from './AlbumGallery';
 import HeroComponent from './HeroComponent';
 import Sponsors from './Sponsors';
+import BasicAbout from './BasicAbout';
 
 const findEventById = (id, events) => {
   if (!events) return null;
@@ -34,7 +35,7 @@ const findEventById = (id, events) => {
 };
 
 // componentConfig is the object with type, storyName, storyTags etc. commonData is the actual GN data
-const componentFactory = (componentConfig, commonData) => {
+const componentFactory = (componentConfig, commonData, siteConfig) => {
   switch (componentConfig.type) {
     case 'Hero':
       return (
@@ -51,7 +52,7 @@ const componentFactory = (componentConfig, commonData) => {
             }
             showLogo={componentConfig.showLogo}
             business={commonData.aboutData}
-            shout={commonData.shoutData.shout}
+            shout={commonData.shoutData?.shout}
             config={componentConfig.config}
             {...componentConfig}
           />
@@ -176,6 +177,7 @@ const componentFactory = (componentConfig, commonData) => {
         <ContactPageLayout
           fields={componentConfig.config.fields}
           aboutData={commonData.aboutData}
+          iframe={siteConfig?.iframeURL}
         />
       );
     case 'Instagram':
@@ -207,8 +209,8 @@ const componentFactory = (componentConfig, commonData) => {
       return (
         <Events
           businessData={commonData.aboutData}
-          singleEvents={commonData.eventsData.specialEventsData.events}
-          recurringEvents={commonData.eventsData.recurringEventsData.events}
+          singleEvents={commonData?.eventsData?.specialEventsData?.events}
+          recurringEvents={commonData?.eventsData?.recurringEventsData?.events}
         />
       );
     case 'MultiStoryHero':
@@ -225,11 +227,14 @@ const componentFactory = (componentConfig, commonData) => {
       return (
         <AlbumGallery
           galleryData={commonData.galleryData}
+          filteredOutAlbums={siteConfig?.filteredOutGalleryImages}
           {...componentConfig.config}
         />
       );
     case 'Sponsors':
       return <Sponsors />;
+    case 'BasicAbout':
+      return <BasicAbout business={commonData.aboutData} />;
 
     default:
       return null;

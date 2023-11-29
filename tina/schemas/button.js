@@ -37,10 +37,12 @@ const commonButtonFields = [
     type: 'object',
     fields: [
       createColorSelectField('Background', 'bg'),
+      createColorSelectField('Text Color', 'color'),
       createColorSelectField('Border Color', 'borderColor'),
       createBorderStyleField('Border Style', 'borderStyle'),
       createBorderRadiusField('Border Radius', 'borderRadius'),
       createBoxShadowField('Box Shadow', 'boxShadow'),
+
       {
         type: 'string',
         label: 'Border Width',

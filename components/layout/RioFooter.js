@@ -1,5 +1,5 @@
 import React from 'react';
-import { Box, Icon, Flex, Text, Link, Typography } from '@chakra-ui/react';
+import { Box, Flex, Text, Link, Icon } from '@chakra-ui/react';
 import {
   FaFacebook,
   FaTwitter,
@@ -7,12 +7,12 @@ import {
   FaMapMarkerAlt,
   FaPhoneAlt,
 } from 'react-icons/fa';
+import Image from 'next/image';
 import SocialLinks from 'components/ui/SocialLinks';
-// React icons up arrows
 import { RiArrowDropUpLine } from 'react-icons/ri';
 import printAddress from 'helpers/printing/printAddress';
 import getGoogleString from 'helpers/printing/getGoogleString';
-import Phone from 'components/contact/Phone';
+import buildAvatar from 'helpers/general/buildAvatar';
 
 export default function RioFooter({ business }) {
   const scrollToTop = () => {
@@ -23,79 +23,89 @@ export default function RioFooter({ business }) {
       });
     }
   };
+
   return (
     <>
-      <Box
-        bgColor={'#2b4371'}
-        textAlign={'center'}
-        color={'white'}
-        py={16}
-        pb={24}
-      >
-        <Text color="white" textTransform={'uppercase'} mb={6}>
+      <Box bgColor="dark" textAlign="center" color="white" py={16} pb={24}>
+        <Text
+          color="white"
+          textTransform="uppercase"
+          mb={6}
+          fontWeight={'bold'}
+          fontSize={['2xl']}
+        >
           Follow Along
         </Text>
-        <div className="flex justify-center">
+        <Flex justifyContent="center">
           <SocialLinks links={business.links} fill="#ffffff" />
-        </div>
+        </Flex>
       </Box>
+
       <Box
-        bgColor="#262526"
-        display={'flex'}
-        justifyContent={'center'}
-        alignItems={'center'}
-        flexDir={'column'}
+        bgColor="white"
+        display="flex"
+        justifyContent="center"
+        alignItems="center"
+        flexDirection="column"
         py={16}
-        pos={'relative'}
+        pb={8}
+        position="relative"
+        borderTopWidth={12}
+        borderColor="primary"
       >
         <Box
-          bgColor="#262526"
+          bgColor="black"
           p={4}
-          borderBottomLeftRadius={'150px'}
-          borderBottomRightRadius={'150px'}
-          borderTopRadius={'150px'}
-          borderTopLeftRadius={'150px'}
-          position={'absolute'}
-          top={-8}
-          cursor={'pointer'}
+          borderRadius="150px"
+          position="absolute"
+          top="-40px"
+          cursor="pointer"
           onClick={scrollToTop}
+          width={75}
+          height={75}
+          display={'flex'}
+          justifyContent={'center'}
+          alignItems={'center'}
         >
-          <RiArrowDropUpLine fill={'#fff'} size={42} />
+          <Icon as={RiArrowDropUpLine} fill="#fff" w={10} h={10} />
         </Box>
-        <Text color="#919191" mb={4}>
-          {business.name}
-        </Text>
+        <Box
+          color="primary"
+          fontWeight={'bold'}
+          textTransform={'uppercase'}
+          mb={4}
+          fontSize={['2xl', '3xl', '4xl']}
+          textAlign={'center'}
+          display={'flex'}
+          justifyContent={'center'}
+        >
+          <Image src={buildAvatar(business)} width={250} height={250} />
+        </Box>
 
-        <div className="flex items-center mb-2 ">
-          <span className="mr-1">
-            <FaMapMarkerAlt fill={'#919191'} />
-          </span>
-          <Text color="#dede0e" as={'a'} href={getGoogleString(business)}>
+        <Flex alignItems="center" mb={2}>
+          <Icon as={FaMapMarkerAlt} fill="#919191" mr={1} />
+          <Text color="primary" as="a" href={getGoogleString(business)}>
             {printAddress(business)}
           </Text>
-        </div>
-        <div className="flex items-center">
-          <span className="mr-1">
-            <FaPhoneAlt fill={'#919191'} />
-          </span>
+        </Flex>
 
-          <Text color="#dede0e" as={'a'} href={`tel:${business.phone}`}>
+        <Flex alignItems="center">
+          <Icon as={FaPhoneAlt} fill="#919191" mr={1} />
+          <Text color="primary" as="a" href={`tel:${business.phone}`}>
             {business.phone}
           </Text>
-        </div>
-        <div className="text-center justify-center flex mt-8">
-          <Link
-            href="https://www.gonation.com/"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <img
-              src="/gn-power-white.svg"
+        </Flex>
+
+        <Flex justifyContent="center" alignItems="center" mt={8}>
+          <Link href="https://www.gonation.com/" isExternal>
+            <Image
+              src="/gn-power-black.svg"
               alt="Powered by GoNation"
-              className="w-48 pt-1"
+              width={270}
+              height={50}
             />
           </Link>
-        </div>
+        </Flex>
       </Box>
     </>
   );

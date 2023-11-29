@@ -12,6 +12,7 @@ import CallDirections from 'components/ui/CallDirections';
 // Utility and helper imports
 import buildAvatar from 'helpers/general/buildAvatar';
 import { retrievePageHeroImage } from 'helpers';
+import RioFooter from './RioFooter';
 
 const WithLayout = Component => {
   return function WrappedComponent(props) {
@@ -73,7 +74,7 @@ const WithLayout = Component => {
         <main className={pageData?.name}>
           <Component {...props} pageData={pageData} />
         </main>
-        <Footer logoAsText business={aboutData} routes={props?.routes} />
+        <RioFooter business={aboutData} />
       </>
     );
   };

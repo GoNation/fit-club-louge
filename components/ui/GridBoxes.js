@@ -15,22 +15,26 @@ const GridBoxes = ({ stories = [] }) => {
       py={[8, 12, 32]}
       px={[4, 8, 16]}
       sx={{
-        bg: 'dark',
-        backgroundImage: `url("https://www.transparenttextures.com/patterns/black-lozenge.png")`,
+        bg: 'light',
+        backgroundImage: `url("https://www.transparenttextures.com/patterns/worn-dots.png")`,
       }}
     >
       <Box
         p={[2, 4]}
-        bg={'dark'}
+        bg={'light'}
+        borderWidth={8}
+        border={'8px solid'}
+        borderLeftColor={'primary'}
+        borderRightColor={'primary'}
+        borderTopColor={'dark'}
+        borderBottomColor={'dark'}
         maxW={{
           base: '100%',
           md: '100%',
-          lg: '80%',
-          xl: '80%',
-          '2xl': '80%',
+          lg: '90%',
+          xl: '70%',
         }}
         m={'auto'}
-        border="1px solid white"
       >
         <Grid
           templateColumns="repeat(12, 1fr)"

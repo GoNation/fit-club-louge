@@ -5,8 +5,10 @@
     "customFontName": ""
   },
   "domain": "https://fitclublounge.com",
+  "iframeURL": "https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d12018.770784340973!2d-73.2578528!3d41.141234!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x89e8114c080618bf%3A0x8c2abf21414e4762!2sFit%20Club%20BJJ!5e0!3m2!1sen!2sus!4v1701273659754!5m2!1sen!2sus",
   "filteredOutGalleryImages": [
-    "Website Photos, Shouts, shouts, shout, website photos"
+    "shouts",
+    "webbsite photos"
   ],
   "navigationSettings": {
     "navLayout": "logoLeft",
@@ -51,7 +53,7 @@
       "customPageHero": "about-pagehero",
       "fetchingStrategy": "static",
       "dataTypes": {
-        "stories": false,
+        "stories": true,
         "poweredImages": true,
         "about": true
       },
@@ -73,7 +75,7 @@
     },
     {
       "name": "Corporate Events",
-      "path": "/corporate-events",
+      "path": "/corporate",
       "seoPageTitle": "Corporate Events at Fit Club Lounge - Fairfield, CT",
       "pageDescription": "Elevate your corporate events at Fit Club Lounge in Fairfield, CT. Our spacious facility is ideal for Annual Meetings, Seminars, Trade Shows, Holiday Parties, Employee Training, Team Building, and more. Starting at $3,000.",
       "customPageHero": "corporate-events-pagehero",
@@ -87,10 +89,10 @@
     },
     {
       "name": "Networking Events",
-      "path": "/corporate-events",
+      "path": "/networking",
       "seoPageTitle": "Networking Events at Fit Club Lounge - Fairfield, CT",
       "pageDescription": "Connect and network at Fit Club Lounge in Fairfield, CT. Our versatile event space is perfect for hosting networking events and gatherings of all sizes.",
-      "customPageHero": "networking-events-pagehero",
+      "customPageHero": "networking-pagehero",
       "fetchingStrategy": "static",
       "dataTypes": {
         "stories": true,
@@ -112,7 +114,7 @@
         "about": true,
         "events": true
       },
-      "layout": "specialEventsLayout"
+      "layout": "eventsLayout"
     },
     {
       "name": "Gallery",
@@ -127,7 +129,8 @@
         "about": true,
         "gallery": true
       },
-      "layout": "galleryEventsLayout"
+      "layout": "galleryLayout",
+      "footerTag": ""
     },
     {
       "name": "Contact",
@@ -142,7 +145,7 @@
         "about": true,
         "gallery": true
       },
-      "layout": "contactEventsLayout"
+      "layout": "contactLayout"
     }
   ]
 }

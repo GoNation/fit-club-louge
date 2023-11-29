@@ -3,14 +3,80 @@ import { heroConfig } from 'theme/heroConfig';
 import { parallaxContentConfig } from 'theme/parallaxContentConfig';
 import shadowyContentContainerWithBg from 'theme/largeContentContainerConfig';
 
-const homepageLayout = [];
+const homepageLayout = [
+  {
+    type: 'Hero',
+    storyName: 'Homepage Hero',
+    config: {
+      ...heroConfig,
+      showLogo: false,
+    },
+  },
+  {
+    type: 'SideBySideImage',
+    storyName: 'Homepage story 1',
+    config: {
+      ...hpSideBySideImageConfig,
+    },
+  },
+
+  {
+    type: 'GridBoxes',
+    storyName: ['homepage story 3', 'homepage story 4', 'homepage story 5'],
+  },
+  {
+    type: 'LargeContentContainer',
+    storyName: 'Homepage story 6',
+    config: {
+      styles: shadowyContentContainerWithBg,
+    },
+  },
+  {
+    type: 'SideBySideImage',
+    storyName: 'Homepage story 7',
+    config: {
+      ...hpSideBySideImageConfig,
+      reversed: false,
+    },
+  },
+  {
+    type: 'SideBySideImage',
+    storyName: 'Homepage story 8',
+    config: {
+      ...hpSideBySideImageConfig,
+    },
+  },
+  {
+    type: 'SideBySideImage',
+    storyName: 'Homepage story 9',
+    config: {
+      ...hpSideBySideImageConfig,
+      reversed: false,
+    },
+  },
+  {
+    type: 'LargeContentContainer',
+    storyName: 'Homepage story 10',
+    config: {
+      styles: shadowyContentContainerWithBg,
+    },
+  },
+];
 
 const aboutLayout = [
   {
+    type: 'BasicAbout',
+    // storyName: 'About page 1',
+    // config: {
+    //   ...hpSideBySideImageConfig,
+    // },
+  },
+  {
     type: 'SideBySideImage',
-    storyName: 'About page 1',
+    storyName: 'about us page story',
     config: {
       ...hpSideBySideImageConfig,
+      reversed: false,
     },
   },
 ];
@@ -30,7 +96,7 @@ const galleryLayout = [
       styles: {
         container: {
           p: 4,
-          bg: 'dark',
+          bg: 'light',
         },
         grid: {
           gap: 6,
@@ -43,6 +109,8 @@ const galleryLayout = [
         },
         box: {
           boxShadow: 'lg',
+          bg: 'white',
+          p: 4,
         },
         image: {
           objectFit: 'cover',
@@ -53,7 +121,6 @@ const galleryLayout = [
     },
   },
 ];
-
 const contactLayout = [
   {
     type: 'ContactPageLayout',
@@ -62,10 +129,79 @@ const contactLayout = [
       title: 'Get In Touch',
       fields: [
         { type: 'text', name: 'Name', placeholder: 'Name' },
-        { type: 'tel', name: 'Phone', placeholder: 'Phone' },
         { type: 'email', name: 'Email', placeholder: 'Email' },
+        { type: 'tel', name: 'Phone', placeholder: 'Phone' },
+        { type: 'text', name: 'Date of Event', placeholder: 'Date of Event' },
+        {
+          type: 'text',
+          name: 'Number of People',
+          placeholder: 'Number of People',
+        },
         { type: 'textarea', name: 'Message', placeholder: 'Your Message' },
       ],
+    },
+  },
+];
+
+const eventsLayout = [
+  {
+    type: 'Events',
+  },
+];
+
+const kidsPartiesLayout = [
+  {
+    type: 'SideBySideImage',
+    storyName: 'kids parties',
+    config: {
+      ...hpSideBySideImageConfig,
+      reversed: false,
+      contentConfig: {
+        ...hpSideBySideImageConfig.contentConfig,
+        bodyContainerStyle: {
+          ...hpSideBySideImageConfig.contentConfig.bodyContainerStyle,
+          leading: 'loose',
+          fontSize: ['lg', 'xl'],
+        },
+      },
+    },
+  },
+];
+
+const corporateEventsLayout = [
+  {
+    type: 'SideBySideImage',
+    storyName: 'corporate page',
+    config: {
+      ...hpSideBySideImageConfig,
+      reversed: false,
+      contentConfig: {
+        ...hpSideBySideImageConfig.contentConfig,
+        bodyContainerStyle: {
+          ...hpSideBySideImageConfig.contentConfig.bodyContainerStyle,
+          leading: 'loose',
+          fontSize: ['lg', 'xl'],
+        },
+      },
+    },
+  },
+];
+
+const networkingEventsLayout = [
+  {
+    type: 'SideBySideImage',
+    storyName: 'networking page',
+    config: {
+      ...hpSideBySideImageConfig,
+      reversed: false,
+      contentConfig: {
+        ...hpSideBySideImageConfig.contentConfig,
+        bodyContainerStyle: {
+          ...hpSideBySideImageConfig.contentConfig.bodyContainerStyle,
+          leading: 'loose',
+          fontSize: ['lg', 'xl'],
+        },
+      },
     },
   },
 ];
@@ -76,12 +212,17 @@ export {
   //   menuLayout,
   //   privateDiningLayout,
   galleryLayout,
+  contactLayout,
+  aboutLayout,
   //   careersLayout,
   //   pressLayout,
   //   contactLayout,
   //   diningGuidelinesLayout,
   //   nomineesLayout,
-  //   eventsLayout,
+  eventsLayout,
+  kidsPartiesLayout,
+  corporateEventsLayout,
+  networkingEventsLayout,
   //   sponsorsLayout,
 };
 

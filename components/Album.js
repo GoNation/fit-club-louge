@@ -8,10 +8,9 @@ const Album = ({ album, coverPhotoIndex = 0, customStyling, onAlbumClick }) => {
     position: 'absolute',
     zIndex: 1,
     color: 'primary',
-    background: 'rgba(0,0,0,.9)',
+    background: 'white',
     width: '100%',
-    py: 2,
-    textShadow: '0 2px 2px rgba(0, 0, 0, 0.7)',
+    p: 2,
     top: '50%',
     transform: 'translateY(-50%)',
     transition: 'top 0.3s ease, transform 0.3s ease',
@@ -23,11 +22,13 @@ const Album = ({ album, coverPhotoIndex = 0, customStyling, onAlbumClick }) => {
   return (
     <Box
       p={4}
+      mx={4}
       rounded="lg"
       shadow="md"
       cursor="pointer"
       onClick={onAlbumClick}
       className={customStyling}
+      background={'white'}
       _hover={{
         '.albumName': {
           top: '100%',

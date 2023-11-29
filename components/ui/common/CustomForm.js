@@ -12,7 +12,7 @@ import {
 import NetlifyForm from 'components/contact/NetlifyForm';
 
 const CustomForm = ({
-  title = 'Contact Form',
+  title = 'Book Your Event Now',
   desc,
   fields,
   formName = 'customForm',
@@ -24,8 +24,8 @@ const CustomForm = ({
       alignItems="center"
       p={4}
       py={{ lg: 12 }}
-      bg="dark"
-      color="white"
+      bg="white"
+      color="dark"
     >
       <NetlifyForm name={formName}>
         <Heading
@@ -34,6 +34,7 @@ const CustomForm = ({
           fontSize={{ base: '2xl', lg: 'xl', xl: '4xl' }}
           mb={1}
           textTransform="uppercase"
+          fontWeight={'bold'}
         >
           {title}
         </Heading>
@@ -49,9 +50,10 @@ const CustomForm = ({
                     placeholder={field.placeholder}
                     rows={5}
                     gridColumn="span 2"
-                    bg="transparent"
+                    bg="light"
                     color="white"
-                    border="1px solid white"
+                    border="1px solid"
+                    borderColor={'light'}
                     borderRadius="md"
                     _focus={{ outline: 'none', borderColor: 'gray.300' }}
                   />
@@ -70,9 +72,10 @@ const CustomForm = ({
                     type={field.type}
                     name={field.name}
                     placeholder={field.placeholder}
-                    bg="transparent"
+                    bg="light"
                     color="white"
-                    border="1px solid white"
+                    border="1px solid"
+                    borderColor={'light'}
                     borderRadius="md"
                     _focus={{ outline: 'none', borderColor: 'gray.300' }}
                   />

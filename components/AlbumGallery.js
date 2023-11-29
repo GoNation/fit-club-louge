@@ -5,7 +5,11 @@ import Album from './Album';
 import { useRouter } from 'next/router';
 import { Box, Grid, Button, Text } from '@chakra-ui/react';
 
-export default function AlbumGallery({ galleryData, styles }) {
+export default function AlbumGallery({
+  galleryData,
+  styles,
+  filteredOutAlbums,
+}) {
   const router = useRouter();
   const [activeAlbum, setActiveAlbum] = useState(null);
 
@@ -21,18 +25,14 @@ export default function AlbumGallery({ galleryData, styles }) {
 
   const albumNameStyle = {
     fontSize: ['xl', '2xl', '3xl', '4xl', '5xl'],
-    color: 'white',
-    textShadow: '0 2px 2px rgba(0, 0, 0, 0.5)',
+    color: 'primary',
+    textAlign: 'center',
+    fontWeight: 'bold',
+    textTransform: 'uppercase',
   };
 
   return (
-    <Box
-      px={[2, 4, 12]}
-      bg="black"
-      py={32}
-      pt={[32, 32, 40]}
-      className="with-texture"
-    >
+    <Box px={[2, 4, 12]} bg="light" py={12} className="with-texture">
       {activeAlbum ? (
         <>
           <Button variant={'primary'} onClick={handleBackClick}>
@@ -57,13 +57,15 @@ export default function AlbumGallery({ galleryData, styles }) {
           maxW="1440px"
           mx="auto"
         >
-          {galleryData.map(album => (
-            <Album
-              key={album.id}
-              album={album}
-              onAlbumClick={() => handleAlbumClick(album)}
-            />
-          ))}
+          {galleryData
+            .filter(abm => !filteredOutAlbums.includes(abm.name.toLowerCase()))
+            .map(album => (
+              <Album
+                key={album.id}
+                album={album}
+                onAlbumClick={() => handleAlbumClick(album)}
+              />
+            ))}
         </Grid>
       )}
     </Box>

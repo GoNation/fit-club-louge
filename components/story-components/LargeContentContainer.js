@@ -2,6 +2,7 @@ import React from 'react';
 import CTA from '../ui/CTA';
 import Body from '../ui/Body';
 import { Box, Heading } from '@chakra-ui/react';
+import extractStory from 'helpers/extractStory';
 
 const getNavPosition = position => {
   const positions = {
@@ -77,6 +78,7 @@ const LargeContentContainer = ({
             const { title, subtitle, body, links } = storyItem;
             const linkTitle = Object.keys(links || {})[0];
             const linkAddress = links?.[linkTitle];
+            const extractedStory = extractStory(storyItem);
 
             return (
               <Box key={index} {...styles.innerBox}>
@@ -96,9 +98,11 @@ const LargeContentContainer = ({
                       <Body body={body} {...styles.body} />
                     </Box>
                   )}
-                  {linkTitle && (
+                  {extractedStory.linkTitle && (
                     <Box {...styles.cta}>
-                      <CTA url={linkAddress}>{linkTitle}</CTA>
+                      <CTA url={extractedStory.linkAddress} variant={'primary'}>
+                        {extractedStory.linkTitle}
+                      </CTA>
                     </Box>
                   )}
                 </ContentBox>
@@ -134,7 +138,9 @@ const LargeContentContainer = ({
           )}
           {linkTitle && (
             <Box {...styles.cta}>
-              <CTA url={linkAddress}>{linkTitle}</CTA>
+              <CTA url={linkAddress} variant="primary">
+                {linkTitle}
+              </CTA>
             </Box>
           )}
         </ContentBox>

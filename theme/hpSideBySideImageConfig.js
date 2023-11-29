@@ -5,8 +5,8 @@ export const hpSideBySideImageConfig = {
     active: false,
   },
   sideBySideImageContainerStyle: {
-    bg: 'dark',
-    backgroundImage: `url("https://www.transparenttextures.com/patterns/black-lozenge.png")`,
+    bg: 'light',
+
     py: { base: 12, lg: 32, xl: 40 },
     px: { base: 2, md: '2rem', lg: '3rem' },
   },
@@ -33,14 +33,14 @@ export const hpSideBySideImageConfig = {
       justifyContent: 'center',
       py: 8,
       px: ['2rem', 8, 24],
-      bg: 'dark',
+      bg: 'white',
       border: '1px solid white',
       mb: [0, 0, 12, 0],
     },
     titleStyle: {
-      color: 'white',
+      color: 'primary',
       fontFamily: 'heading',
-      fontSize: { base: '2xl', md: '3xl' },
+      fontSize: { base: '2xl', md: '3xl', lg: '5xl' },
       fontWeight: 'bold',
       textTransform: 'uppercase',
       textAlign: 'center',
@@ -49,10 +49,11 @@ export const hpSideBySideImageConfig = {
       letterSpacing: 4,
     },
     subtitleStyle: {
-      color: 'white',
+      color: 'dark',
       fontFamily: 'body',
       fontSize: ['lg', 'xl'],
       textTransform: 'uppercase',
+      fontWeight: 'bold',
       textAlign: 'center',
     },
     bodyContainerStyle: {
@@ -65,10 +66,12 @@ export const hpSideBySideImageConfig = {
       my: 8,
       fontWeight: 400,
       fontFamily: 'body',
+      color: 'dark',
     },
   },
   imageConfig: {
     size: 1200,
+
     containerStyle: {
       width: '100%',
       height: [500, 500, 700],

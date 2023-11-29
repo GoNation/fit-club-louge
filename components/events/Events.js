@@ -2,7 +2,7 @@ import React from 'react';
 import { Box, SimpleGrid } from '@chakra-ui/react';
 import EventItem from './EventItem';
 
-const Events = ({ businessData, singleEvents, recurringEvents }) => {
+const Events = ({ businessData, singleEvents = [], recurringEvents = [] }) => {
   const allEvents = singleEvents.concat(recurringEvents);
 
   return (

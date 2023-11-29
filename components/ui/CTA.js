@@ -7,15 +7,12 @@ const CTA = ({ children, url, variant = 'primaryFilled' }) => {
   const target = isExternalURL ? '_blank' : '';
 
   return (
-    <Link href={url} passHref>
-      {/* <Button
-        as="a"
-        rel={target.length ? 'noopener noreferrer' : ''}
-        target={target}
-        variant={variant}
-      >
-        {children}
-      </Button> */}
+    <Link
+      href={url}
+      rel={target.length ? 'noopener noreferrer' : ''}
+      target={target}
+    >
+      <Button variant={variant}>{children}</Button>
     </Link>
   );
 };

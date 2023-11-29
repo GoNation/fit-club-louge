@@ -1,4 +1,10 @@
-import { createColorField, createSelectField } from '../tinaUtilities';
+import {
+  createColorField,
+  createSelectField,
+  createColorSelectField,
+  createFontWeightField,
+  createBorderStyleField,
+} from '../tinaUtilities';
 
 export const buttonBaseStyleSchema = {
   label: 'Button Base Style',
@@ -20,9 +26,11 @@ export const buttonBaseStyleSchema = {
 };
 
 const createButtonVariantFields = hoverFields => [
-  createColorField('Background', 'bg'),
-  createColorField('Border Color', 'borderColor'),
-  createSelectField('Font Weight', 'fontWeight', ['normal', 'bold']),
+  createColorSelectField('Background', 'bg'),
+  createColorSelectField('Border Color', 'borderColor'),
+  createFontWeightField('Font Weight', 'fontWeight'),
+  createBorderStyleField('Border Style', 'borderStyle'),
+
   {
     label: 'Hover',
     name: '_hover',
@@ -51,8 +59,8 @@ export const buttonSchema = {
       component: 'group',
       type: 'object',
       fields: createButtonVariantFields([
-        createColorField('Background', 'bg'),
-        createColorField('Text Color', 'color'),
+        createColorSelectField('Background', 'bg'),
+        createColorSelectField('Text Color', 'color'),
         // Add other hover style fields for the default variant if needed
       ]),
     },
@@ -62,8 +70,8 @@ export const buttonSchema = {
       component: 'group',
       type: 'object',
       fields: createButtonVariantFields([
-        createColorField('Background', 'bg'),
-        createColorField('Text Color', 'color'),
+        createColorSelectField('Background', 'bg'),
+        createColorSelectField('Text Color', 'color'),
         // Add other hover style fields for the default variant if needed
       ]),
     },
@@ -73,8 +81,8 @@ export const buttonSchema = {
       component: 'group',
       type: 'object',
       fields: createButtonVariantFields([
-        createColorField('Background', 'bg'),
-        createColorField('Text Color', 'color'),
+        createColorSelectField('Background', 'bg'),
+        createColorSelectField('Text Color', 'color'),
         // Add other hover style fields for the default variant if needed
       ]),
     },
@@ -84,8 +92,8 @@ export const buttonSchema = {
       component: 'group',
       type: 'object',
       fields: createButtonVariantFields([
-        createColorField('Background', 'bg'),
-        createColorField('Text Color', 'color'),
+        createColorSelectField('Background', 'bg'),
+        createColorSelectField('Text Color', 'color'),
         // Add other hover style fields for the default variant if needed
       ]),
     },
@@ -95,8 +103,8 @@ export const buttonSchema = {
       component: 'group',
       type: 'object',
       fields: createButtonVariantFields([
-        createColorField('Background', 'bg'),
-        createColorField('Text Color', 'color'),
+        createColorSelectField('Background', 'bg'),
+        createColorSelectField('Text Color', 'color'),
         // Add other hover style fields for the default variant if needed
       ]),
     },
@@ -106,8 +114,8 @@ export const buttonSchema = {
       component: 'group',
       type: 'object',
       fields: createButtonVariantFields([
-        createColorField('Background', 'bg'),
-        createColorField('Text Color', 'color'),
+        createColorSelectField('Background', 'bg'),
+        createColorSelectField('Text Color', 'color'),
         // Add other hover style fields for the default variant if needed
       ]),
     },
@@ -117,8 +125,8 @@ export const buttonSchema = {
       component: 'group',
       type: 'object',
       fields: createButtonVariantFields([
-        createColorField('Background', 'bg'),
-        createColorField('Text Color', 'color'),
+        createColorSelectField('Background', 'bg'),
+        createColorSelectField('Text Color', 'color'),
         // Add other hover style fields for the default variant if needed
       ]),
     },
@@ -129,8 +137,8 @@ export const buttonSchema = {
       component: 'group',
       type: 'object',
       fields: createButtonVariantFields([
-        createColorField('Border Color', 'borderColor'),
-        createColorField('Text Color', 'color'),
+        createColorSelectField('Border Color', 'borderColor'),
+        createColorSelectField('Text Color', 'color'),
         // Add other hover style fields for the default variant if needed
       ]),
     },
@@ -141,7 +149,7 @@ export const buttonSchema = {
       component: 'group',
       type: 'object',
       fields: createButtonVariantFields([
-        createColorField('Text Color', 'color'),
+        createColorSelectField('Text Color', 'color'),
         // Add other hover style fields for the default variant if needed
       ]),
     },

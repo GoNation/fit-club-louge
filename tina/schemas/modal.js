@@ -31,19 +31,30 @@ export const modalSchema = {
         name: 'display',
         component: 'text',
         type: 'string',
+        // set default value to 'flex'
       },
-      {
-        label: 'Align Items',
-        name: 'alignItems',
-        component: 'text',
-        type: 'string',
-      },
-      {
-        label: 'Justify Content',
-        name: 'justifyContent',
-        component: 'text',
-        type: 'string',
-      },
+      createSelectField(
+        'Align Items',
+        'alignItems',
+        [
+          { label: 'Flex Start', value: 'flex-start' },
+          { label: 'Flex End', value: 'flex-end' },
+          { label: 'Center', value: 'center' },
+          { label: 'Stretch', value: 'stretch' },
+        ],
+        'Aligns the items along the cross axis.'
+      ),
+      createSelectField(
+        'Justify Content',
+        'justifyContent',
+        [
+          { label: 'Flex Start', value: 'flex-start' },
+          { label: 'Flex End', value: 'flex-end' },
+          { label: 'Center', value: 'center' },
+          { label: 'Stretch', value: 'stretch' },
+        ],
+        'Aligns the items along the main axis.'
+      ),
       // Add other dialog container style properties as needed
     ]),
     createModalStyleField('overlay', 'Overlay', [
@@ -54,9 +65,15 @@ export const modalSchema = {
         type: 'string',
         ui: {
           component: 'color',
-          colorFormat: 'rgba',
+          colorFormat: 'rgb',
           widget: 'sketch',
         },
+      },
+      {
+        label: 'Opacity',
+        name: 'opacity',
+        component: 'text',
+        type: 'string',
       },
       // Add other overlay style properties as needed
     ]),

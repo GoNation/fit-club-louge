@@ -1,6 +1,5 @@
 import { extendTheme } from '@chakra-ui/react';
 import themeData from 'content/theme/theme.json';
-console.log('themeData', themeData);
 
 const theme = extendTheme({
   colors: themeData.colors,
@@ -27,27 +26,19 @@ const theme = extendTheme({
     },
     Modal: {
       baseStyle: {
-        dialog: {
-          borderRadius: '0',
-          bg: 'dark',
-          color: 'white',
-        },
-        // center the modal
-        dialogContainer: {
-          display: 'flex',
-          alignItems: 'center',
-          justifyContent: 'center',
-        },
         // Darken the background behind the modal
+        ...themeData.modal,
         overlay: {
-          bg: 'rgba(0, 0, 0, 0.7)',
+          bg: `rgba(${
+            themeData.modal.overlay.bg.match(/\d+/g).map(Number)[0]
+          }, ${themeData.modal.overlay.bg.match(/\d+/g).map(Number)[1]}, ${
+            themeData.modal.overlay.bg.match(/\d+/g).map(Number)[2]
+          }, ${themeData.modal.overlay.opacity})`,
         },
       },
     },
     Button: {
-      baseStyle: {
-        textTransform: 'uppercase',
-      },
+      baseStyle: themeData.buttons.baseStyle,
       variants: {
         default: {
           bg: 'transparent',
@@ -62,12 +53,13 @@ const theme = extendTheme({
           bg: 'primary',
           fontWeight: 'normal',
           color: 'dark',
-          borderBottom: '1px solid',
+          borderWidth: '1px', // ! Need it
+          borderStyle: 'solid',
           borderColor: 'primary',
-          borderRadius: 4,
-          fontSize: 'lg',
+          borderRadius: 4, // ? Need it
+          fontSize: 'lg', // ? Need it
           fontWeight: 'bold',
-          boxShadow: '1px 1px 11px 1px #00FFE4',
+          boxShadow: '1px 1px 11px 1px #00FFE4', // ! Need it
           _hover: {
             color: 'white',
           },

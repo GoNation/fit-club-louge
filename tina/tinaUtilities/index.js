@@ -12,12 +12,13 @@ export const createColorField = (label, name) => ({
 });
 
 // Utility function to create a select field
-export const createSelectField = (label, name, options) => ({
+export const createSelectField = (label, name, options, description) => ({
   label,
   name,
   component: 'select',
   type: 'string',
   options,
+  description,
 });
 
 // Utility function to create a font field
@@ -44,6 +45,15 @@ export const createTextTransformField = (label, name) => ({
   component: 'select',
   type: 'string',
   options: ['none', 'capitalize', 'uppercase', 'lowercase', 'full-width'],
+});
+
+export const createFontWeightField = (label, name) => ({
+  label,
+  name,
+  component: 'select',
+  type: 'string',
+  //   using chakra ui font weights
+  options: ['normal', 'bold', 'lighter', 'bolder'],
 });
 
 // Utility function to create a spacing field
@@ -99,6 +109,7 @@ export const createColorSelectField = (label, name, additionalColors = []) => {
     'light',
     'background',
     'white',
+    'transparent',
   ];
   const colors = [...baseColors, ...additionalColors].map(color =>
     color.toLowerCase()
@@ -106,6 +117,23 @@ export const createColorSelectField = (label, name, additionalColors = []) => {
 
   return createSelectField(label, name, colors);
 };
+
+export const createBorderStyleField = (label, name) => ({
+  label,
+  name,
+  component: 'select',
+  type: 'string',
+  options: ['none', 'solid', 'dashed', 'dotted', 'double', 'groove', 'ridge'],
+});
+
+// Utility function for a simple text field
+export const createTextField = (label, name, description) => ({
+  label,
+  name,
+  component: 'text',
+  type: 'string',
+  description,
+});
 
 export const COLOR_FORMAT = 'hex';
 export const WIDGET = 'sketch';

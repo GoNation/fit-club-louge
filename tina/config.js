@@ -11,7 +11,7 @@ const branch = 'fit-club-stray';
 
 export default defineConfig({
   branch,
-  clientId: 'f13368c7-ddd0-4891-b907-2d27da3e9d36', // Get this from tina.io
+  clientId: '8a4768d2-6f0e-4160-b74e-b425a2ea502e', // Get this from tina.io
   token: '66d7d25ea4af81d728adcfc01032e4bc02c4be54', // Get this from tina.io
 
   build: {

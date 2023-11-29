@@ -1,3 +1,5 @@
+import { navigationSchema } from './navigation';
+
 const siteConfigSchema = {
   name: 'siteConfig',
   label: 'Site Configuration',
@@ -77,41 +79,7 @@ const siteConfigSchema = {
     // },
     // ... add other fields in a similar manner
 
-    {
-      type: 'object',
-      name: 'navigationSettings',
-      label: 'Additional Navigation Settings',
-      component: 'group',
-      fields: [
-        {
-          type: 'boolean',
-          name: 'displayFixedBarCTA',
-          label: 'Display Fixed Bar CTA',
-          description:
-            'Display fixed bar CTA. This is a thin CTA clickable bar above the navigation.',
-        },
-        {
-          type: 'string',
-          name: 'storyName',
-          label: 'Story Name',
-          description:
-            'The name of the story you want to be displayed. If Display Fixed Bar CTA is true, this is required.',
-        },
-        {
-          type: 'string',
-          name: 'label',
-          label: 'CTA Label',
-          description:
-            'The actual text of what will be displayed for the CTA button.',
-        },
-        {
-          type: 'string',
-          name: 'url',
-          label: 'CTA URL',
-          description: 'The URL of the CTA button.',
-        },
-      ],
-    },
+    navigationSchema,
 
     {
       type: 'object',

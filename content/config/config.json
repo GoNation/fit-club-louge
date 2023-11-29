@@ -9,10 +9,19 @@
     "Website Photos, Shouts, shouts, shout, website photos"
   ],
   "navigationSettings": {
-    "displayFixedBarCTA": true,
-    "storyName": "nav-cta",
-    "label": "BUY TICKETS | CRAZIES 2023 ",
-    "url": "https://web.ctrestaurant.org/events/2023-CRAzies-Awards--895/details"
+    "navLayout": "logoCentered",
+    "navPosition": "fixed",
+    "hamburgerSettings": {
+      "hamburgerColor": "#04F2E9",
+      "hamburgerSize": 24,
+      "hamburgerVisibility": "tablet"
+    },
+    "fixedNavigationCTABar": {
+      "displayFixedBarCTA": true,
+      "storyName": "nav-cta",
+      "label": "BUY TICKETS | CRAZIES 2023",
+      "url": "https://web.ctrestaurant.org/events/2023-CRAzies-Awards--895/details"
+    }
   },
   "routes": [
     {

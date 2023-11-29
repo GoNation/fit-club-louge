@@ -1,3 +1,5 @@
+import { createColorSelectField } from '../tinaUtilities';
+
 export const globalStylesSchema = {
   // Group for style settings
   label: 'Styles',
@@ -12,12 +14,7 @@ export const globalStylesSchema = {
       label: 'Global Styles',
       fields: [
         // Add specific style fields here
-        {
-          type: 'string',
-          name: 'backgroundColor',
-          label: 'Background Color',
-          // You can reference a color from your color settings if needed
-        },
+        createColorSelectField('Background Color', 'backgroundColor'),
       ],
     },
   ],

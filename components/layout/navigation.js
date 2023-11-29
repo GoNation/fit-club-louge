@@ -1,19 +1,18 @@
 import React, { useState, useEffect } from 'react';
-import slugify from 'slugify';
-import Link from 'next/link';
-import Image from 'next/image';
-import { Sling as Hamburger } from 'hamburger-react';
 import MobileNavigation from './MobileNavigation';
 import { FaAngleDown } from 'react-icons/fa';
 import { Box, Flex, Text } from '@chakra-ui/react';
 
 import buildAvatar from 'helpers/general/buildAvatar';
-import slugifyLower from 'helpers/printing/slugifyLower';
 import CTABar from 'components/CTABar';
+import Dropdown from './Dropdown';
+import LinkItem from './LinkItem';
+import NavLogo from './NavLogo';
+import Hamburger from './Hamburger';
+import slugifyLower from 'helpers/printing/slugifyLower';
 
 const Navigation = ({
   business,
-  logoAsText = false,
   navLayout = 'stacked',
   bgColor,
   navPosition = 'fixed',
@@ -50,58 +49,9 @@ const Navigation = ({
     setNavIsOpen(false);
   };
 
-  const Dropdown = ({ children }) => (
-    <Box
-      position="absolute"
-      left={-10}
-      //   right={0}
-      top={12}
-      mt={0}
-      bg="#041a32"
-      shadow="md"
-      py={1}
-      display={{ base: 'none', md: 'flex' }}
-      flexDirection="column"
-      alignItems="center"
-      width={36}
-      opacity={isDropdownVisible ? 1 : 0}
-      transition="opacity 0.3s ease-in-out"
-    >
-      {children.map(child => (
-        <Box mb={3}>
-          <LinkItem
-            key={slugify(child.name, { lower: true })}
-            route={child}
-            px={4}
-            py={2}
-            hoverBg="secondary"
-            color="white"
-            hoverColor="white"
-            fontFamily="heading"
-            textTransform="uppercase"
-          />
-        </Box>
-      ))}
-    </Box>
-  );
-
-  const LinkItem = ({ route, ...props }) => (
-    <Link
-      href={route.path || route.url || slugifyLower(route.name) || '#'}
-      target={
-        // IF route.url OR route.path includes 'http' THEN '_blank' ELSE '_self'
-        (route.url || route.path).includes('http') ? '_blank' : '_self'
-      }
-    >
-      <Text as="span" {...props}>
-        {route.name}
-      </Text>
-    </Link>
-  );
-
   const renderRoute = route => (
     <Box
-      key={slugify(route.name, { lower: true })}
+      key={slugifyLower(route.name)}
       position="relative"
       display="group"
       cursor={route.children ? 'pointer' : 'pointer'}
@@ -126,7 +76,12 @@ const Navigation = ({
               <FaAngleDown color="#ffffff" />
             </Box>
           </Text>
-          {isDropdownVisible && <Dropdown children={route.children} />}
+          {isDropdownVisible && (
+            <Dropdown
+              children={route.children}
+              isDropdownVisible={isDropdownVisible}
+            />
+          )}
         </>
       ) : (
         <LinkItem
@@ -148,15 +103,7 @@ const Navigation = ({
     </Box>
   );
 
-  const renderLogo = () => (
-    <Flex w="full" justifyContent="center" py={2} px={4} rounded="sm">
-      <Box>
-        <Link href={'/'}>
-          <Image src={logo} alt="Business Logo" width={500} height={200} />
-        </Link>
-      </Box>
-    </Flex>
-  );
+  const renderLogo = () => <NavLogo logo={logo} business={business} />;
 
   const renderNavItems = routesToRender => (
     <Flex display={{ base: 'none', lg: 'flex' }} spacing={3}>
@@ -195,6 +142,13 @@ const Navigation = ({
             </Flex>
           </Flex>
         );
+      case 'stacked':
+        return (
+          <>
+            {renderLogo()}
+            {renderNavItems(routes)}
+          </>
+        );
       default:
         return (
           <>
@@ -203,6 +157,10 @@ const Navigation = ({
           </>
         );
     }
+  };
+
+  const hamburgerStyles = {
+    zIndex: 999999,
   };
 
   return (
@@ -217,7 +175,7 @@ const Navigation = ({
         borderColor={hasScrolled() && 'primary'}
       >
         {navigationSettings?.displayFixedBarCTA && (
-          <CTABar content={navigationSettings} />
+          <CTABar content={navigationSettings?.displayFixedBarCTA} />
         )}
 
         <Flex
@@ -228,21 +186,13 @@ const Navigation = ({
           justifyContent="space-between"
         >
           {renderNavigationContent()}
-
-          <Box
-            display={{ base: 'block', lg: 'none' }}
-            right={8}
-            {...{ md: { top: 16 }, base: { top: 14 } }}
-            zIndex={999999}
-          >
-            <Hamburger
-              toggled={navIsOpen}
-              toggle={setNavIsOpen}
-              color={'#04F2E9'}
-              rounded={false}
-              size={28}
-            />
-          </Box>
+          <Hamburger
+            hamburgerStyles={hamburgerStyles}
+            navIsOpen={navIsOpen}
+            setNavIsOpen={setNavIsOpen}
+            navigationSettings={navigationSettings}
+            hamburgerSettings={navigationSettings?.hamburgerSettings}
+          />
 
           {navIsOpen && (
             <MobileNavigation

@@ -12,7 +12,6 @@ import CallDirections from 'components/ui/CallDirections';
 // Utility and helper imports
 import buildAvatar from 'helpers/general/buildAvatar';
 import { retrievePageHeroImage } from 'helpers';
-import findStoryByName from 'helpers/findStoryByName';
 
 const WithLayout = Component => {
   return function WrappedComponent(props) {
@@ -47,7 +46,12 @@ const WithLayout = Component => {
         />
         <Navigation
           business={aboutData}
-          navLayout="logoCentered"
+          navLayout={
+            props?.siteConfig?.navigationSettings?.navLayout || 'stacked'
+          }
+          navPosition={
+            props?.siteConfig?.navigationSettings?.navPosition || 'fixed'
+          }
           key={pathname}
           routes={props?.routes || []}
           navigationSettings={props?.siteConfig?.navigationSettings || {}}

@@ -1,10 +1,16 @@
 import {
-  createColorField,
   createSelectField,
   createColorSelectField,
   createFontWeightField,
   createBorderStyleField,
+  createBorderRadiusField,
+  createFontSizeField,
+  createBoxShadowField,
+  createNumberField,
+  toCamelCase,
+  createFontFamilyField,
 } from '../tinaUtilities';
+import BorderWidthSlider from '../components/BorderWidthSlider';
 
 export const buttonBaseStyleSchema = {
   label: 'Button Base Style',
@@ -19,31 +25,87 @@ export const buttonBaseStyleSchema = {
       'lowercase',
       'full-width',
     ]),
-    // Add fields for other base style properties as needed
-    // For example, if you want to make fontWeight customizable, add a select field for it
-    // createSelectField('Font Weight', 'fontWeight', ['normal', 'bold', 'lighter', 'bolder']),
   ],
 };
 
-const createButtonVariantFields = hoverFields => [
-  createColorSelectField('Background', 'bg'),
-  createColorSelectField('Border Color', 'borderColor'),
-  createFontWeightField('Font Weight', 'fontWeight'),
-  createBorderStyleField('Border Style', 'borderStyle'),
+// Common fields for all button variants
+const commonButtonFields = [
+  {
+    label: 'Style',
+    name: 'style',
+    component: 'group',
+    type: 'object',
+    fields: [
+      createColorSelectField('Background', 'bg'),
+      createColorSelectField('Border Color', 'borderColor'),
+      createBorderStyleField('Border Style', 'borderStyle'),
+      createBorderRadiusField('Border Radius', 'borderRadius'),
+      createBoxShadowField('Box Shadow', 'boxShadow'),
+      {
+        type: 'string',
+        label: 'Border Width',
+        name: 'borderWidth',
+        component: 'number',
+        ui: {
+          component: BorderWidthSlider,
+        },
+      },
+      // Add other style-related fields here
+    ],
+  },
+  {
+    label: 'Typography',
+    name: 'typography',
+    component: 'group',
+    type: 'object',
+    fields: [
+      createFontSizeField('Font Size', 'fontSize'),
+      createFontWeightField('Font Weight', 'fontWeight'),
+      createNumberField('Letter Spacing', 'letterSpacing'),
+      createFontFamilyField('Font Family', 'fontFamily'),
+    ],
+  },
+  {
+    label: 'Layout',
+    name: 'layout',
+    component: 'group',
+    type: 'object',
+    fields: [
+      createNumberField('Padding Horizontal', 'px'),
+      createNumberField('Padding Vertical', 'py'),
+      // Add other layout-related fields here
+    ],
+  },
 
   {
     label: 'Hover',
     name: '_hover',
     component: 'group',
     type: 'object',
-    fields: hoverFields,
+    fields: [
+      createColorSelectField('Background', 'bg'),
+      createColorSelectField('Text Color', 'color'),
+    ],
   },
 ];
 
-// const buttonVariantFields = (additionalFields) => [
-//   ...commonButtonFields,
-//   ...additionalFields,
-// ];
+// Function to create fields for a button variant
+const createButtonVariantFields = variantName => {
+  const camelCaseName = toCamelCase(variantName);
+
+  return [
+    {
+      label: `${variantName} Button`,
+      name: camelCaseName,
+      component: 'group',
+      type: 'object',
+      fields: [
+        ...commonButtonFields,
+        // Variant-specific fields
+      ],
+    },
+  ];
+};
 
 export const buttonSchema = {
   label: 'Buttons',
@@ -53,108 +115,14 @@ export const buttonSchema = {
   description: 'Configure the button styles for your theme.',
   fields: [
     buttonBaseStyleSchema,
-    {
-      label: 'Default Button',
-      name: 'default',
-      component: 'group',
-      type: 'object',
-      fields: createButtonVariantFields([
-        createColorSelectField('Background', 'bg'),
-        createColorSelectField('Text Color', 'color'),
-        // Add other hover style fields for the default variant if needed
-      ]),
-    },
-    {
-      label: 'Primary Button',
-      name: 'primary',
-      component: 'group',
-      type: 'object',
-      fields: createButtonVariantFields([
-        createColorSelectField('Background', 'bg'),
-        createColorSelectField('Text Color', 'color'),
-        // Add other hover style fields for the default variant if needed
-      ]),
-    },
-    {
-      label: 'Primary Filled Button',
-      name: 'primaryFilled',
-      component: 'group',
-      type: 'object',
-      fields: createButtonVariantFields([
-        createColorSelectField('Background', 'bg'),
-        createColorSelectField('Text Color', 'color'),
-        // Add other hover style fields for the default variant if needed
-      ]),
-    },
-    {
-      label: 'Secondary Button',
-      name: 'secondary',
-      component: 'group',
-      type: 'object',
-      fields: createButtonVariantFields([
-        createColorSelectField('Background', 'bg'),
-        createColorSelectField('Text Color', 'color'),
-        // Add other hover style fields for the default variant if needed
-      ]),
-    },
-    {
-      label: 'Secondary Filled Button',
-      name: 'secondaryFilled',
-      component: 'group',
-      type: 'object',
-      fields: createButtonVariantFields([
-        createColorSelectField('Background', 'bg'),
-        createColorSelectField('Text Color', 'color'),
-        // Add other hover style fields for the default variant if needed
-      ]),
-    },
-    {
-      label: 'Tertiary Button',
-      name: 'tertiary',
-      component: 'group',
-      type: 'object',
-      fields: createButtonVariantFields([
-        createColorSelectField('Background', 'bg'),
-        createColorSelectField('Text Color', 'color'),
-        // Add other hover style fields for the default variant if needed
-      ]),
-    },
-    {
-      label: 'Tertiary Filled Button',
-      name: 'tertiaryFilled',
-      component: 'group',
-      type: 'object',
-      fields: createButtonVariantFields([
-        createColorSelectField('Background', 'bg'),
-        createColorSelectField('Text Color', 'color'),
-        // Add other hover style fields for the default variant if needed
-      ]),
-    },
-    // Variant for outline button
-    {
-      label: 'Outline Button',
-      name: 'outline',
-      component: 'group',
-      type: 'object',
-      fields: createButtonVariantFields([
-        createColorSelectField('Border Color', 'borderColor'),
-        createColorSelectField('Text Color', 'color'),
-        // Add other hover style fields for the default variant if needed
-      ]),
-    },
-    // variant for unset button
-    {
-      label: 'Unset Button',
-      name: 'unset',
-      component: 'group',
-      type: 'object',
-      fields: createButtonVariantFields([
-        createColorSelectField('Text Color', 'color'),
-        // Add other hover style fields for the default variant if needed
-      ]),
-    },
-
-    // Repeat for other button variants like 'primary', 'primaryFilled', etc.
-    // ...
+    ...createButtonVariantFields('Default'),
+    ...createButtonVariantFields('Primary'),
+    ...createButtonVariantFields('Primary Filled'),
+    ...createButtonVariantFields('Secondary'),
+    ...createButtonVariantFields('Secondary Filled'),
+    ...createButtonVariantFields('Tertiary'),
+    ...createButtonVariantFields('Tertiary Filled'),
+    ...createButtonVariantFields('Outline'),
+    ...createButtonVariantFields('Unset'),
   ],
 };

@@ -33,12 +33,32 @@
       "textTransform": "uppercase"
     },
     "default": {
-      "bg": "transparent",
-      "borderColor": "dark",
-      "fontWeight": "normal",
+      "style": {
+        "bg": "primary",
+        "borderColor": "primary",
+        "borderStyle": "solid",
+        "borderRadius": "none",
+        "borderWidth": "1px"
+      },
       "_hover": {
         "bg": "light",
         "color": "primary"
+      }
+    },
+    "primary": {
+      "typography": {
+        "fontSize": "lg",
+        "fontWeight": "normal",
+        "letterSpacing": 1,
+        "fontFamily": "body"
+      },
+      "layout": {
+        "px": 12,
+        "py": 8
+      },
+      "_hover": {
+        "bg": "white",
+        "color": "dark"
       }
     }
   },

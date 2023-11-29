@@ -53,13 +53,13 @@ const theme = extendTheme({
           bg: 'primary',
           fontWeight: 'normal',
           color: 'dark',
-          borderWidth: '1px', // ! Need it
+          borderWidth: '1px',
           borderStyle: 'solid',
           borderColor: 'primary',
-          borderRadius: 4, // ? Need it
-          fontSize: 'lg', // ? Need it
+          borderRadius: 4,
+          fontSize: 'lg',
           fontWeight: 'bold',
-          boxShadow: '1px 1px 11px 1px #00FFE4', // ! Need it
+          boxShadow: '1px 1px 11px 1px #00FFE4',
           _hover: {
             color: 'white',
           },
@@ -95,9 +95,6 @@ const theme = extendTheme({
           },
         },
         // ... you can add more variants here
-      },
-      defaultProps: {
-        size: 'lg',
       },
     },
   },

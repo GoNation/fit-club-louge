@@ -1,3 +1,5 @@
+import BorderWidthSlider from '../components/BorderWidthSlider';
+
 // Utility function to create a color field
 export const createColorField = (label, name) => ({
   label,
@@ -133,6 +135,60 @@ export const createTextField = (label, name, description) => ({
   component: 'text',
   type: 'string',
   description,
+});
+
+// Utility function for border radius chakra ui select optiosn
+export const createBorderRadiusField = (label, name) => ({
+  label,
+  name,
+  component: 'select',
+  type: 'string',
+  options: ['none', 'sm', 'md', 'lg', 'xl', '2xl', 'full'],
+});
+
+// Utility function for font size chakra ui select options
+export const createFontSizeField = (label, name) => ({
+  label,
+  name,
+  component: 'select',
+  type: 'string',
+  options: ['xs', 'sm', 'md', 'lg', 'xl', '2xl', '3xl', '4xl', '5xl'],
+});
+
+// Utility function to create a box shadow field
+export const createBoxShadowField = (label, name) => {
+  const boxShadowOptions = ['base', 'md', 'lg', 'xl', '2xl', 'none']; // Add or modify based on your theme
+  return createSelectField(label, name, boxShadowOptions);
+};
+
+// Basic number field
+export const createNumberField = (label, name) => ({
+  label,
+  name,
+  component: 'number',
+  type: 'number',
+});
+
+export const toCamelCase = str => {
+  return str
+    .split(' ')
+    .map((word, index) => {
+      if (index === 0) {
+        return word.toLowerCase();
+      }
+      return word.charAt(0).toUpperCase() + word.slice(1).toLowerCase();
+    })
+    .join('');
+};
+
+// utility function for dropdown for fonts (body, heading, links, or acccent for now)
+const fontOptions = ['body', 'heading', 'links', 'accent'];
+export const createFontFamilyField = (label, name, options = fontOptions) => ({
+  label,
+  name,
+  component: 'select',
+  type: 'string',
+  options,
 });
 
 export const COLOR_FORMAT = 'hex';

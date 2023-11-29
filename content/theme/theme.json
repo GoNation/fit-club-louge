@@ -34,8 +34,8 @@
     },
     "default": {
       "style": {
-        "bg": "primary",
-        "borderColor": "primary",
+        "bg": "transparent",
+        "borderColor": "dark",
         "borderStyle": "solid",
         "borderRadius": "none",
         "borderWidth": "1px"
@@ -46,6 +46,13 @@
       }
     },
     "primary": {
+      "style": {
+        "bg": "primary",
+        "borderColor": "primary",
+        "borderStyle": "solid",
+        "boxShadow": "lg",
+        "borderWidth": "1px"
+      },
       "typography": {
         "fontSize": "lg",
         "fontWeight": "normal",
@@ -57,8 +64,8 @@
         "py": 8
       },
       "_hover": {
-        "bg": "white",
-        "color": "dark"
+        "bg": "primary",
+        "color": "white"
       }
     }
   },

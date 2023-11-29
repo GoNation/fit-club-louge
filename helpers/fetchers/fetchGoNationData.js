@@ -1,4 +1,3 @@
-// import { businessId, poweredId } from '../../config';
 import {
   storiesFetch,
   aboutFetch,

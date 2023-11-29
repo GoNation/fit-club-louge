@@ -5,10 +5,9 @@ import largeContentContainer from './schemas/largeContentContainer';
 import themeSchema from './schemas/theme';
 import sideBySide from './schemas/sideBySide';
 import siteConfigSchema from './schemas/siteConfig';
-// import json from 'content/test.json';
 
 // Your hosting provider likely exposes this as an environment variable
-const branch = 'crazies+templating-branch';
+const branch = 'main';
 
 export default defineConfig({
   branch,
@@ -33,8 +32,13 @@ export default defineConfig({
         path: 'content/theme', // you can decide on the path, ensure it exists
         fields: themeSchema.fields,
         format: 'json', // I'm assuming you want to save the theme as a JSON
-        create: true, // Allows creating the theme from the CMS if it doesn't exist
+        create: false, // Allows creating the theme from the CMS if it doesn't exist
         extension: 'json', // Ensure the file is saved as a JSON file
+        ui: {
+          allowedActions: {
+            create: false,
+          },
+        },
       },
       siteConfigSchema,
       {

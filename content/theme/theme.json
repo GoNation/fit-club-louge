@@ -10,8 +10,86 @@
     }
   },
   "colors": {
-    "colorName": "primary",
-    "shade50": "#20bed6",
-    "shade900": "#ffffff"
+    "primary": "#04F2E9",
+    "secondary": "#299FFF",
+    "accent": "#04F2E9",
+    "dark": "#00001E",
+    "light": "#CECECE",
+    "background": "#F5E6D9"
+  },
+  "fonts": {
+    "body": "Open Sans, system-ui, sans-serif",
+    "heading": "Open Sans, system-ui, sans-serif",
+    "links": "Open Sans, system-ui, sans-serif",
+    "accent": "digital, system-ui, sans-serif"
+  },
+  "styles": {
+    "global": {
+      "backgroundColor": "dark"
+    }
+  },
+  "buttons": {
+    "baseStyle": {
+      "textTransform": "uppercase"
+    },
+    "default": {
+      "style": {
+        "bg": "transparent",
+        "borderColor": "dark",
+        "borderStyle": "solid",
+        "borderRadius": "none",
+        "borderWidth": "1px"
+      },
+      "_hover": {
+        "bg": "light",
+        "color": "primary"
+      }
+    },
+    "primary": {
+      "style": {
+        "bg": "primary",
+        "borderColor": "primary",
+        "borderStyle": "solid",
+        "boxShadow": "lg",
+        "borderWidth": "1px"
+      },
+      "typography": {
+        "fontSize": "lg",
+        "fontWeight": "normal",
+        "letterSpacing": 1,
+        "fontFamily": "body"
+      },
+      "layout": {
+        "px": 12,
+        "py": 8
+      },
+      "_hover": {
+        "bg": "primary",
+        "color": "white"
+      }
+    }
+  },
+  "modal": {
+    "dialog": {
+      "bg": "dark",
+      "color": "white",
+      "borderRadius": "0"
+    },
+    "dialogContainer": {
+      "display": "flex",
+      "alignItems": "center",
+      "justifyContent": "center"
+    },
+    "overlay": {
+      "bg": "rgb(0, 0, 0)",
+      "opacity": "0.7"
+    }
+  },
+  "heading": {
+    "baseStyle": {
+      "fontWeight": "normal",
+      "textTransform": "uppercase",
+      "color": "primary"
+    }
   }
 }

@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from 'react';
 import Link from 'next/link';
-import AppContext from 'context/AppContext';
 import Image from 'next/image';
 import dayjs from 'dayjs';
 import {
@@ -11,7 +10,6 @@ import {
 } from 'react-icons/ai';
 import { GrAnnounce } from 'react-icons/gr';
 import buildAvatar from 'helpers/general/buildAvatar';
-import { gnPowerBlack } from 'assets/gn-power-black.svg';
 import printAddress from 'helpers/printing/printAddress';
 import printMinimalAddress from 'helpers/printing/printMinimalAddress';
 import trimURL from '../../helpers/general/trimURL';

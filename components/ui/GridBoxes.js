@@ -13,14 +13,14 @@ const GridBoxes = ({ stories = [] }) => {
     <Box
       p={8}
       py={[8, 12, 32]}
-      px={[4, 8, 16]}
+      px={[1, 8, 16]}
       sx={{
         bg: 'light',
         backgroundImage: `url("https://www.transparenttextures.com/patterns/worn-dots.png")`,
       }}
     >
       <Box
-        p={[2, 4]}
+        p={[1, 4]}
         bg={'light'}
         borderWidth={8}
         border={'8px solid'}
@@ -39,7 +39,7 @@ const GridBoxes = ({ stories = [] }) => {
         <Grid
           templateColumns="repeat(12, 1fr)"
           templateRows="repeat(12, 1fr)"
-          gap={{ base: '2', md: 8 }}
+          gap={{ base: '4', md: 8 }}
           display={{ base: 'block', md: 'grid' }}
           minH={{ base: 'auto', md: 900 }}
           height={['auto']}

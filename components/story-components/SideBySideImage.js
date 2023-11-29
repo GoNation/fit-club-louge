@@ -37,10 +37,10 @@ const SideBySideImage = ({ story, config, data }) => {
     const { media } = story;
 
     components.push(
-      <Box position={'relative'}>
+      <Box position={'relative'} overflow={'hidden'} py={[32, 0]}>
         <Box
           position={'absolute'}
-          top={8}
+          top={[24, 8]}
           right={!reversed || -40}
           left={reversed || -40}
         >

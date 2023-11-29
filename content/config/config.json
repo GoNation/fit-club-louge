@@ -15,7 +15,7 @@
     "navPosition": "relative",
     "hamburgerSettings": {
       "hamburgerColor": "#B52C2F",
-      "hamburgerSize": 24,
+      "hamburgerSize": 32,
       "hamburgerVisibility": "tablet"
     },
     "fixedNavigationCTABar": {

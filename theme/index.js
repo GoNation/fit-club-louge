@@ -1,27 +1,14 @@
 import { extendTheme } from '@chakra-ui/react';
+import themeData from 'content/theme/theme.json';
+console.log('themeData', themeData);
 
 const theme = extendTheme({
-  colors: {
-    primary: '#04F2E9',
-    secondary: '#299fff',
-    third: '#04F2E9',
-    accent: '#04F2E9',
-    dark: '#00001E',
-    light: '#cecece',
-    menuBg: '#F5E6D9',
-  },
-  fonts: {
-    body: 'Open Sans, system-ui, sans-serif',
-    heading: 'Open Sans, system-ui, sans-serif',
-    link: 'Open Sans, system-ui, sans-serif',
-    accent: 'digital, system-ui, sans-serif',
-    menuSection: 'Open Sans',
-  },
-
+  colors: themeData.colors,
+  fonts: themeData.fonts,
   styles: {
     global: {
       body: {
-        backgroundColor: 'dark',
+        ...themeData.styles.global,
       },
     },
   },
@@ -36,11 +23,7 @@ const theme = extendTheme({
       }),
     },
     Heading: {
-      baseStyle: {
-        fontWeight: 'normal',
-        textTransform: 'uppercase',
-        color: 'primary',
-      },
+      baseStyle: themeData.heading.baseStyle,
     },
     Modal: {
       baseStyle: {
@@ -63,7 +46,6 @@ const theme = extendTheme({
     },
     Button: {
       baseStyle: {
-        // fontWeight: 'bold',
         textTransform: 'uppercase',
       },
       variants: {

@@ -1,4 +1,9 @@
-import { createColorField, createModalStyleField } from '../tinaUtilities';
+import {
+  createColorField,
+  createModalStyleField,
+  createSelectField,
+  createColorSelectField,
+} from '../tinaUtilities';
 
 // Define the fields for the Modal component
 export const modalSchema = {
@@ -6,10 +11,12 @@ export const modalSchema = {
   name: 'modal',
   component: 'group',
   type: 'object',
+  description: 'Configure the modal styles for your theme.',
   fields: [
     createModalStyleField('dialog', 'Dialog', [
-      createColorField('Background Color', 'bg'),
-      createColorField('Text Color', 'color'),
+      createColorSelectField('Background Color', 'bg'),
+
+      createColorSelectField('Text Color', 'color'),
       {
         label: 'Border Radius',
         name: 'borderRadius',

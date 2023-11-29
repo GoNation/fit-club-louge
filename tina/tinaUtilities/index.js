@@ -89,5 +89,23 @@ export const shadowSchema = {
   ],
 };
 
+// Utility function to create a color select field
+export const createColorSelectField = (label, name, additionalColors = []) => {
+  const baseColors = [
+    'primary',
+    'secondary',
+    'accent',
+    'dark',
+    'light',
+    'background',
+    'white',
+  ];
+  const colors = [...baseColors, ...additionalColors].map(color =>
+    color.toLowerCase()
+  );
+
+  return createSelectField(label, name, colors);
+};
+
 export const COLOR_FORMAT = 'hex';
 export const WIDGET = 'sketch';

@@ -23,22 +23,17 @@ const themeSchema = {
     fontSchema,
     globalStylesSchema,
     buttonSchema,
-    {
-      ...modalSchema,
-      description: 'Configure the modal styles for your theme.',
-    },
-    {
-      ...headingSchema,
-      description: 'Configure the heading styles for your theme.',
-    },
-    {
-      label: 'Design Tokens',
-      name: 'designTokens',
-      component: 'group',
-      type: 'object',
-      description: 'Configure the design tokens for your theme.',
-      fields: [spacingSchema, shadowSchema],
-    },
+    modalSchema,
+    headingSchema,
+    // todo not sure how we'll use this yet (design tokens)
+    // {
+    //   label: 'Design Tokens',
+    //   name: 'designTokens',
+    //   component: 'group',
+    //   type: 'object',
+    //   description: 'Configure the design tokens for your theme.',
+    //   fields: [spacingSchema, shadowSchema],
+    // },
   ],
 };
 

@@ -1,7 +1,7 @@
 import {
-  createColorField,
   createSelectField,
   createTextTransformField,
+  createColorSelectField,
 } from '../tinaUtilities';
 
 // Define the fields for the Heading component
@@ -10,6 +10,7 @@ export const headingSchema = {
   name: 'heading',
   component: 'group',
   type: 'object',
+  description: 'Configure the heading styles for your theme.',
   fields: [
     {
       label: 'Base Style',
@@ -24,7 +25,9 @@ export const headingSchema = {
           'bolder',
         ]),
         createTextTransformField('Text Transform', 'textTransform'),
-        createColorField('Color', 'color'), // Assumes color refers to your theme colors
+        createColorSelectField('Color', 'color'),
+        // ... other fields
+
         // Add other base style properties as needed
       ],
     },

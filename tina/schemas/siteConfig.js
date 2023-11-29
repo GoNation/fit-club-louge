@@ -1,5 +1,3 @@
-import themeSchema from './theme';
-
 const siteConfigSchema = {
   name: 'siteConfig',
   label: 'Site Configuration',
@@ -16,7 +14,28 @@ const siteConfigSchema = {
         'This is the GoNationID of the business. Can be found at https://www.gonation.com/',
     },
     {
-      ...themeSchema,
+      // A group called fonts that i will then have 2 fields for
+      type: 'object',
+      name: 'fonts',
+      label: 'Font Imports',
+      component: 'group',
+      description: 'Add google or custom fonts to your website.',
+      fields: [
+        {
+          label: 'Google Fonts URL',
+          name: 'googleFontsUrl',
+          component: 'text',
+          description: 'Enter the Google Fonts URL',
+          type: 'string',
+        },
+        {
+          label: 'Custom Font Name',
+          name: 'customFontName',
+          component: 'text',
+          description: 'Enter the name of the custom font',
+          type: 'string',
+        },
+      ],
     },
     {
       type: 'string',

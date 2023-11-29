@@ -1,5 +1,9 @@
 {
   "businessId": "bzn-aGKtaV_DQoio5F49wltPhQ",
+  "fonts": {
+    "googleFontsUrl": "https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;500;700&display=swap",
+    "customFontName": "digital"
+  },
   "domain": "https://craziesawards.com/",
   "filteredOutGalleryImages": [
     "Website Photos, Shouts, shouts, shout, website photos"

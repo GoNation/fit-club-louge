@@ -76,17 +76,19 @@ const ClickableBox = ({ story, noClick, idx }) => {
         <Heading {...clickableBoxStyles.title}>{title}</Heading>
 
         <Body body={body} lineHeight={[2, 1.5]} {...clickableBoxStyles.body} />
-        <Link href={linkAddress}>
-          <Button
-            variant="unset"
-            textDecoration={'underline'}
-            px={0}
-            color={'primary'}
-            _hover={{ textDecoration: 'none', color: 'dark' }}
-          >
-            {linkTitle}
-          </Button>
-        </Link>
+        {linkAddress && (
+          <Link href={linkAddress}>
+            <Button
+              variant="unset"
+              textDecoration={'underline'}
+              px={0}
+              color={'primary'}
+              _hover={{ textDecoration: 'none', color: 'dark' }}
+            >
+              {linkTitle}
+            </Button>
+          </Link>
+        )}
       </Box>
     </Box>
   );

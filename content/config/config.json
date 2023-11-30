@@ -121,7 +121,7 @@
       "path": "/gallery",
       "seoPageTitle": "Explore Fit Club Lounge Gallery - Fairfield, CT",
       "pageDescription": "Browse through our gallery to see the vibrant and exciting events held at Fit Club Lounge in Fairfield, CT. Get inspired for your next gathering.",
-      "customPageHero": "special-events-pagehero",
+      "customPageHero": "gallery-pagehero",
       "fetchingStrategy": "static",
       "dataTypes": {
         "stories": true,

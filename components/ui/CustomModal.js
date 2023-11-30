@@ -9,7 +9,7 @@ import {
   Box,
 } from '@chakra-ui/react';
 import extractStory from 'helpers/extractStory';
-import useModal from 'hooks/useModal';
+import { useModal } from 'hooks/useModal';
 import Link from 'next/link';
 import { useEffect } from 'react';
 import Body from './Body';

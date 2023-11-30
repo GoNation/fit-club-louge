@@ -171,6 +171,7 @@ const kidsPartiesLayout = [
     config: {
       formName: 'kidsParties',
       title: 'Get In Touch',
+      hideMap: true,
       fields: [
         { type: 'text', name: 'Name', placeholder: 'Name' },
         { type: 'email', name: 'Email', placeholder: 'Email' },
@@ -209,6 +210,7 @@ const corporateEventsLayout = [
     config: {
       formName: 'corporateParties',
       title: 'Get In Touch',
+      hideMap: true,
       fields: [
         { type: 'text', name: 'Name', placeholder: 'Name' },
         { type: 'email', name: 'Email', placeholder: 'Email' },
@@ -247,6 +249,7 @@ const networkingEventsLayout = [
     config: {
       formName: 'networking',
       title: 'Get In Touch',
+      hideMap: true,
       fields: [
         { type: 'text', name: 'Name', placeholder: 'Name' },
         { type: 'email', name: 'Email', placeholder: 'Email' },

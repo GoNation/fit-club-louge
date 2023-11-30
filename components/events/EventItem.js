@@ -35,6 +35,7 @@ export default function EventItem({ event, variantName }) {
       cursor="pointer"
       borderRadius="md"
       onClick={handleEventClick}
+      py={4}
     >
       <AspectRatio ratio={4 / 3}>
         <Image

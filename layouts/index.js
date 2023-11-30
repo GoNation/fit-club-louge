@@ -65,13 +65,6 @@ const homepageLayout = [
 
 const aboutLayout = [
   {
-    type: 'BasicAbout',
-    // storyName: 'About page 1',
-    // config: {
-    //   ...hpSideBySideImageConfig,
-    // },
-  },
-  {
     type: 'SideBySideImage',
     storyName: 'about us page story',
     config: {

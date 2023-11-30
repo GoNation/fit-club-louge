@@ -30,6 +30,7 @@ const SocialLInks = ({
     <>
       {links.facebook ? (
         <a
+          style={{ marginRight: '12px' }}
           href={`${links.facebook}`}
           target="_blank"
           rel="noreferrer"
@@ -43,6 +44,7 @@ const SocialLInks = ({
       )}
       {links.instagram ? (
         <a
+          style={{ marginRight: '12px' }}
           href={`${links.instagram}`}
           target="_blank"
           rel="noreferrer"
@@ -56,6 +58,7 @@ const SocialLInks = ({
       )}
       {links.linkedin ? (
         <a
+          style={{ marginRight: '12px' }}
           href={`${links.linkedin}`}
           target="_blank"
           rel="noreferrer"
@@ -82,6 +85,7 @@ const SocialLInks = ({
       )}
       {links.twitter ? (
         <a
+          style={{ marginRight: '12px' }}
           href={`${links.twitter}`}
           target="_blank"
           rel="noreferrer"
@@ -95,6 +99,7 @@ const SocialLInks = ({
       )}
       {links.pinterest ? (
         <a
+          style={{ marginRight: '12px' }}
           href={`${links.pinterest}`}
           target="_blank"
           rel="noreferrer"

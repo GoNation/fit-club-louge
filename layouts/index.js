@@ -166,6 +166,25 @@ const kidsPartiesLayout = [
       },
     },
   },
+  {
+    type: 'ContactPageLayout',
+    config: {
+      formName: 'kidsParties',
+      title: 'Get In Touch',
+      fields: [
+        { type: 'text', name: 'Name', placeholder: 'Name' },
+        { type: 'email', name: 'Email', placeholder: 'Email' },
+        { type: 'tel', name: 'Phone', placeholder: 'Phone' },
+        { type: 'text', name: 'Date of Event', placeholder: 'Date of Event' },
+        {
+          type: 'text',
+          name: 'Number of People',
+          placeholder: 'Number of People',
+        },
+        { type: 'textarea', name: 'Message', placeholder: 'Your Message' },
+      ],
+    },
+  },
 ];
 
 const corporateEventsLayout = [
@@ -185,6 +204,25 @@ const corporateEventsLayout = [
       },
     },
   },
+  {
+    type: 'ContactPageLayout',
+    config: {
+      formName: 'corporateParties',
+      title: 'Get In Touch',
+      fields: [
+        { type: 'text', name: 'Name', placeholder: 'Name' },
+        { type: 'email', name: 'Email', placeholder: 'Email' },
+        { type: 'tel', name: 'Phone', placeholder: 'Phone' },
+        { type: 'text', name: 'Date of Event', placeholder: 'Date of Event' },
+        {
+          type: 'text',
+          name: 'Number of People',
+          placeholder: 'Number of People',
+        },
+        { type: 'textarea', name: 'Message', placeholder: 'Your Message' },
+      ],
+    },
+  },
 ];
 
 const networkingEventsLayout = [
@@ -202,6 +240,25 @@ const networkingEventsLayout = [
           fontSize: ['lg', 'xl'],
         },
       },
+    },
+  },
+  {
+    type: 'ContactPageLayout',
+    config: {
+      formName: 'networking',
+      title: 'Get In Touch',
+      fields: [
+        { type: 'text', name: 'Name', placeholder: 'Name' },
+        { type: 'email', name: 'Email', placeholder: 'Email' },
+        { type: 'tel', name: 'Phone', placeholder: 'Phone' },
+        { type: 'text', name: 'Date of Event', placeholder: 'Date of Event' },
+        {
+          type: 'text',
+          name: 'Number of People',
+          placeholder: 'Number of People',
+        },
+        { type: 'textarea', name: 'Message', placeholder: 'Your Message' },
+      ],
     },
   },
 ];

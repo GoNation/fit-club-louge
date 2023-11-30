@@ -7,8 +7,8 @@ export const hpSideBySideImageConfig = {
   sideBySideImageContainerStyle: {
     bg: 'light',
 
-    py: { base: 12, lg: 32, xl: 40 },
-    px: { base: 2, md: '2rem', lg: '3rem' },
+    py: { base: 4, lg: 32, xl: 40 },
+    px: { base: 2, md: '2rem', lg: 4 },
   },
   innerContainer: {
     display: { base: 'block', lg: 'grid' },
@@ -32,10 +32,10 @@ export const hpSideBySideImageConfig = {
       alignItems: 'center',
       justifyContent: 'center',
       py: 8,
-      px: ['2rem', 8, 24],
+      px: ['2rem', 8],
       bg: 'white',
       border: '1px solid white',
-      mb: [0, 0, 12, 0],
+      mb: [0, 0, 0, 0],
     },
     titleStyle: {
       color: 'primary',
@@ -75,7 +75,7 @@ export const hpSideBySideImageConfig = {
     containerStyle: {
       width: '100%',
       height: [500, 500, 700],
-      padding: [0, 0],
+      padding: [8, 0],
       my: [8, 0],
     },
     relativeContainerStyle: {

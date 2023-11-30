@@ -24,7 +24,7 @@ export default function EventItem({ event, variantName }) {
   const isDetailVisible = router.asPath.endsWith(`#${_id}`);
 
   const handleEventClick = () => {
-    router.push(`/events#${_id}`);
+    router.push(`/special-events#${_id}`);
   };
 
   return (

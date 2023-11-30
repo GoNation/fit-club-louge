@@ -1,6 +1,12 @@
-import { useState } from 'react';
+import React, { createContext, useContext, useState } from 'react';
 
-const useModal = () => {
+const ModalContext = createContext(null);
+
+export const useModal = () => {
+  return useContext(ModalContext);
+};
+
+export const ModalProvider = ({ children }) => {
   const [isOpen, setIsOpen] = useState(false);
   const [modalContent, setModalContent] = useState(null);
 
@@ -14,12 +20,11 @@ const useModal = () => {
     setModalContent(null);
   };
 
-  return {
-    isOpen,
-    modalContent,
-    openModal,
-    closeModal,
-  };
+  return (
+    <ModalContext.Provider
+      value={{ isOpen, modalContent, openModal, closeModal }}
+    >
+      {children}
+    </ModalContext.Provider>
+  );
 };
-
-export default useModal;

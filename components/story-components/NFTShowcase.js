@@ -95,12 +95,6 @@ export default function NFTShowcase({
           </Button>
         ))}
       </Box>
-      {console.log(
-        clientFetchedStories?.filter(
-          story =>
-            selectedPill === 0 || story?.tags?.includes(pills[selectedPill - 1])
-        )
-      )}
       <SimpleGrid
         stories={
           selectedPill === 0

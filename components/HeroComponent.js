@@ -67,7 +67,6 @@ const HeroComponent = ({ story, business, config, event, shout }) => {
   );
 
   const { title, linkAddress, linkTitle, subtitle } = extractStory(story);
-  console.log('extractStory(story)', extractStory(story));
 
   const renderHeroContent = () => (
     <Box {...heroContainerStyle}>
@@ -89,16 +88,16 @@ const HeroComponent = ({ story, business, config, event, shout }) => {
             <Box {...heroImageContentContainer}>
               <Heading
                 color={'white'}
-                fontSize={['lg', 'xl', '8xl']}
+                fontSize={['3xl', '3xl', '8xl']}
                 textShadow={'0 0 10px rgba(0,0,0,0.5)'}
                 as="h1"
-                fontWeight={'light'}
+                fontWeight={'bold'}
               >
                 {title}
               </Heading>
               <Heading
                 color={'white'}
-                fontSize={['lg', 'xl', '5xl']}
+                fontSize={['xl', 'xl', '5xl']}
                 textShadow={'0 0 10px rgba(0,0,0,0.5)'}
                 as="h2"
                 fontWeight={'bold'}

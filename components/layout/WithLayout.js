@@ -13,7 +13,8 @@ import CallDirections from 'components/ui/CallDirections';
 import buildAvatar from 'helpers/general/buildAvatar';
 import { retrievePageHeroImage } from 'helpers';
 import RioFooter from './RioFooter';
-
+import ShoutModal from 'components/ui/ShoutModal';
+import { ModalProvider } from 'hooks/useModal';
 const WithLayout = Component => {
   return function WrappedComponent(props) {
     const { pathname, asPath } = useRouter();
@@ -37,7 +38,7 @@ const WithLayout = Component => {
       retrievePageHeroImage(pathname, customPageHero, poweredImagesData);
     const cloudinaryId = retrievedPoweredImage?.cloudinaryId || null;
     return (
-      <>
+      <ModalProvider>
         <PageHead
           title={seoPageTitle || pageTitle}
           description={pageDescription}
@@ -75,7 +76,8 @@ const WithLayout = Component => {
           <Component {...props} pageData={pageData} />
         </main>
         <RioFooter business={aboutData} />
-      </>
+        <ShoutModal />
+      </ModalProvider>
     );
   };
 };

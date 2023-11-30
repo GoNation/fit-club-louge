@@ -93,15 +93,20 @@ const PageHero = props => {
         )}
         <Heading
           mt="16"
-          fontSize={['xl', '3xl', '4xl', '5xl']}
+          fontSize={['3xl', '3xl', '4xl', '5xl']}
           color="white"
-          fontWeight={props.pageTitle === 'Weddings' ? 'light' : 'normal'}
           textTransform={'uppercase'}
           textAlign={'center'}
+          fontWeight="bold"
         >
           {props.pageTitle}
         </Heading>
-        <PixiLine starColor="accent" />
+        {/* <PixiLine starColor="accent" /> */}
+        <Flex width={'300px'} mx={'auto'}>
+          <Box width={'56%'} height={5} bg={'black'}></Box>
+          <Box width={'20%'} height={5} bg={'primary'} mx={1}></Box>
+          <Box width={'24%'} height={5} bg={'black'}></Box>
+        </Flex>
         <Text color="white" fontSize="md" mt="4" textAlign="center">
           {props?.description}
         </Text>

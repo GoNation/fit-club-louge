@@ -45,13 +45,13 @@ const GridBoxes = ({ stories = [] }) => {
           height={['auto']}
           p={{ base: 4 }}
         >
-          <Box gridColumn="span 7" gridRow="span 12">
+          <Box gridColumn="span 7" gridRow="span 12" mb={[8, 0]}>
             <ClickableBox story={stories[0]} noClick index={0} />
           </Box>
-          <Box gridColumn="span 5" gridRow="span 6">
+          <Box gridColumn="span 5" gridRow="span 6" mb={[8, 0]}>
             <ClickableBox story={stories[1]} noClick />
           </Box>
-          <Box gridColumn="span 5" gridRow="span 6">
+          <Box gridColumn="span 5" gridRow="span 6" mb={[8, 0]}>
             <ClickableBox story={stories[2]} noClick />
           </Box>
         </Grid>

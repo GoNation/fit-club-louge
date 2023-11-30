@@ -3,10 +3,9 @@ import { Button, Link } from '@chakra-ui/react';
 const HeroContentLink = ({ linkTitle, linkAddress }) => (
   <Link
     href={linkAddress}
-    passHref
     style={{ padding: '0 .75rem', boxSizing: 'border-box' }}
   >
-    <Button as="a" width="100%" variant={'primary'}>
+    <Button width="100%" variant={'primary'} fontWeight={'bold'}>
       {linkTitle}
     </Button>
   </Link>

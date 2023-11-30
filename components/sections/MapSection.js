@@ -6,8 +6,6 @@ import DetailsBox from 'components/contact/DetailsBox';
 const MapSection = ({ aboutData, iframeURL }) => {
   const iframe = `<iframe src="${iframeURL}"  style="width: 100%; height: 100%"  allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>`;
 
-  console.log('iframe: ', iframe);
-
   return (
     <Box
       position="relative"

@@ -37,14 +37,14 @@ const SideBySideImage = ({ story, config, data }) => {
     const { media } = story;
 
     components.push(
-      <Box position={'relative'} overflow={'hidden'} py={[32, 0]}>
+      <Box position={'relative'} overflow={['hidden', 'unset']} py={[32, 0]}>
         <Box
           position={'absolute'}
           top={[24, 8]}
           right={!reversed || -40}
           left={reversed || -40}
         >
-          <Image src="/dots.png" width={400} height={800} />
+          <Image src="/dots.png" width={400} height={800} alt="Dotted Vector" />
         </Box>
         <ImageComponent
           alt={story.title}
@@ -60,9 +60,9 @@ const SideBySideImage = ({ story, config, data }) => {
         alignItems={'center'}
         py={8}
       >
-        <Box width={6} height={60} bg={'dark'} />
+        <Box width={6} height={['128px']} bg={'dark'} />
         <ContentComponent key={1} {...story} {...config} />
-        <Box width={6} height={40} bg={'primary'} />
+        <Box width={6} height={['100px']} bg={'primary'} />
       </Box>
     );
   }

@@ -123,7 +123,7 @@ export const heroConfig = {
   },
 
   heroTitle: {
-    fontSize: ['xl', '2xl', '4xl'],
+    fontSize: ['3xl', '2xl', '4xl'],
     boxShadow: '1px 1px 11px 1px #00FFE4',
     py: 2,
     px: 4,
@@ -196,7 +196,7 @@ export const heroConfig = {
       color: 'white',
       textTransform: 'uppercase',
       textAlign: 'center',
-      fontSize: ['2xl', '4xl'],
+      fontSize: ['3xl', '4xl'],
     },
     headingSubtitle: {
       color: 'white',

@@ -28,6 +28,7 @@ const ContentBox = ({
   children,
   styles,
 }) => {
+  if (!children) return null;
   const navPosition = getNavPosition(navPositioning);
 
   // Convert the color and opacityStrength to rgba format
@@ -119,31 +120,36 @@ const LargeContentContainer = ({
   const singleBgImage = story?.media?.[0]?.cloudinaryId
     ? `url(https://res.cloudinary.com/gonation/w_1800/q_auto/f_auto/${story.media[0].cloudinaryId})`
     : undefined;
+
+  const shouldRenderContentBox = title || subtitle || linkAddress || linkTitle;
+
   return (
     <Box bgImage={singleBgImage} {...styles.container}>
       <Box {...styles.innerBox}>
-        <ContentBox
-          solidBg={solidBg}
-          navPositioning={navPositioning}
-          color={color}
-          opacityStrength={opacityStrength}
-          styles={styles}
-        >
-          {title && <Heading {...styles.heading}>{title}</Heading>}
-          {subtitle && <Heading {...styles.subtitle}>{subtitle}</Heading>}
-          {body && (
-            <Box>
-              <Body body={body} {...styles.body} />
-            </Box>
-          )}
-          {linkTitle && (
-            <Box {...styles.cta}>
-              <CTA url={linkAddress} variant="primary">
-                {linkTitle}
-              </CTA>
-            </Box>
-          )}
-        </ContentBox>
+        {shouldRenderContentBox && (
+          <ContentBox
+            solidBg={solidBg}
+            navPositioning={navPositioning}
+            color={color}
+            opacityStrength={opacityStrength}
+            styles={styles}
+          >
+            {title && <Heading {...styles.heading}>{title}</Heading>}
+            {subtitle && <Heading {...styles.subtitle}>{subtitle}</Heading>}
+            {body && (
+              <Box>
+                <Body body={body} {...styles.body} />
+              </Box>
+            )}
+            {linkTitle && (
+              <Box {...styles.cta}>
+                <CTA url={linkAddress} variant="primary">
+                  {linkTitle}
+                </CTA>
+              </Box>
+            )}
+          </ContentBox>
+        )}
       </Box>
     </Box>
   );

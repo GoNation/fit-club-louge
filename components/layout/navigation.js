@@ -176,11 +176,15 @@ const Navigation = ({
         transition="background-color 0.3s ease-in-out"
         // borderBottom={hasScrolled() && '1px solid'}
         // borderColor={hasScrolled() && 'primary'}
-        px={{ base: 0, md: 2, lg: 4 }}
         py={{ base: 0 }}
       >
-        {navigationSettings?.displayFixedBarCTA && (
-          <CTABar content={navigationSettings?.displayFixedBarCTA} />
+        {navigationSettings?.fixedNavigationCTABar?.displayFixedBarCTA && (
+          <CTABar
+            content={
+              navigationSettings?.fixedNavigationCTABar?.displayFixedBarCTA
+            }
+            businessId={business.businessId}
+          />
         )}
 
         <Flex

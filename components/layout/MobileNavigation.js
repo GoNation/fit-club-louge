@@ -26,7 +26,7 @@ function MobileNavigation({ navVariants, logo, closeMobileNav, routes = [] }) {
       bg="white"
       px={2}
       pt={4}
-      zIndex={50}
+      zIndex={99}
     >
       <Flex direction="column" p={12} width={'100%'}>
         <Flex
@@ -87,11 +87,11 @@ function MobileNavigation({ navVariants, logo, closeMobileNav, routes = [] }) {
         </Flex>
         <Box
           position="absolute"
-          bottom={20}
+          bottom={12}
           left="50%"
           transform="translateX(-50%)"
           width="100%"
-          maxWidth="350px"
+          maxWidth="100px"
         >
           <Image
             src={logo}

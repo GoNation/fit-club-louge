@@ -20,6 +20,7 @@ const fetchGoNationData = async params => {
     multiBusiness,
     businessId,
     poweredId,
+    useJSONP,
   } = params;
 
   let aboutData = {},
@@ -63,7 +64,7 @@ const fetchGoNationData = async params => {
 
   if (shout) {
     try {
-      shoutData = await shoutFetch(poweredId || businessId);
+      shoutData = await shoutFetch(poweredId || businessId, useJSONP);
     } catch (e) {
       shoutData = {
         error: e,
@@ -118,7 +119,10 @@ const fetchGoNationData = async params => {
   return {
     storiesData,
     poweredImagesData,
-    aboutData,
+    aboutData: {
+      ...aboutData,
+      businessId: businessId,
+    },
     shoutData,
     eventsData,
     menuInventoryData,

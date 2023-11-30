@@ -7,7 +7,7 @@ import sideBySide from './schemas/sideBySide';
 import siteConfigSchema from './schemas/siteConfig';
 
 // Your hosting provider likely exposes this as an environment variable
-const branch = 'fit-club-stray';
+const branch = 'fit-club-stray'; // chjange
 
 export default defineConfig({
   branch,

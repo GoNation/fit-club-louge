@@ -1,6 +1,4 @@
 import React, { useEffect, useState } from 'react';
-import draftJS from 'draft-js';
-import draftToHtml from 'draftjs-to-html';
 import { chakra } from '@chakra-ui/react';
 
 const StyledDiv = chakra('div');
@@ -23,21 +21,7 @@ const Body = ({ body, color = 'black', h2, h1, h3, h4, h5, ...props }) => {
       setFinalHtml(tempDiv.innerHTML);
     };
 
-    if (body.includes('{"blocks":')) {
-      const parsedBody = JSON.parse(body);
-      const contentState = draftJS.convertFromRaw(parsedBody);
-      const editorState = draftJS.EditorState.createWithContent(contentState);
-      const rawContentState = draftJS.convertToRaw(
-        editorState.getCurrentContent()
-      );
-      let htmlMarkUp = draftToHtml(rawContentState, {
-        trigger: '#',
-        separator: ' ',
-      });
-      removeTrailingEmptyPTags(htmlMarkUp);
-    } else {
-      removeTrailingEmptyPTags(body);
-    }
+    removeTrailingEmptyPTags(body);
   }, [body]);
 
   return (

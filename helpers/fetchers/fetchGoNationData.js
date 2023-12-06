@@ -116,8 +116,19 @@ const fetchGoNationData = async params => {
     }
   }
 
+  const filterStoriesData = stories => {
+    // Iterate over each key in the stories object (team, press, general)
+    const filteredStories = Object.keys(stories).reduce((acc, key) => {
+      // Map through each story in the array and remove the business key
+      acc[key] = stories[key].map(({ business, ...rest }) => rest);
+      return acc;
+    }, {});
+
+    return filteredStories;
+  };
+
   return {
-    storiesData,
+    storiesData: filterStoriesData(storiesData),
     poweredImagesData,
     aboutData: {
       ...aboutData,

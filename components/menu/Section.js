@@ -55,7 +55,6 @@ const Section = ({ section, parsedSection, countSectionImages, config }) => {
       color: 'dark',
       fontWeight: 'light',
       mb: [4, 4, 0],
-      fontFamily: 'ssNickson',
       ...config?.heading,
     },
     description: {

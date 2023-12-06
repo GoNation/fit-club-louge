@@ -22,7 +22,6 @@ import Events from './events/Events';
 import MultiStoryHero from './story-components/MultiStoryHero';
 import AlbumGallery from './AlbumGallery';
 import HeroComponent from './HeroComponent';
-import Sponsors from './Sponsors';
 import BasicAbout from './BasicAbout';
 
 const findEventById = (id, events) => {
@@ -231,8 +230,8 @@ const componentFactory = (componentConfig, commonData, siteConfig) => {
           {...componentConfig.config}
         />
       );
-    case 'Sponsors':
-      return <Sponsors />;
+    // case 'Sponsors':
+    //   return <Sponsors />;
     case 'BasicAbout':
       return <BasicAbout business={commonData.aboutData} />;
 

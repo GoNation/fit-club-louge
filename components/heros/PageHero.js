@@ -1,38 +1,33 @@
 import {
   Box,
   Flex,
-  Image,
   Heading,
   Text,
   Link as ChakraLink,
   useStyleConfig,
 } from '@chakra-ui/react';
-
-import PixiLine from 'components/PixiLine';
+import Image from 'next/image';
 import Link from 'next/link';
 import { useRouter } from 'next/router';
 import { useEffect, useState } from 'react';
 
 const PageHero = props => {
-  const { withLogo } = props;
+  const { withLogo, img, pageTitle, description } = props;
   const [shouldZoomOut, setShouldZoomOut] = useState(false);
 
-  const router = useRouter(); // Step 1
+  const router = useRouter();
 
   // Reset animation on route change
   useEffect(() => {
     const handleRouteChange = () => {
       setShouldZoomOut(false);
-      // Timeout allows for a slight delay to first reset to the initial state
-      // and then trigger the animation.
       setTimeout(() => {
         setShouldZoomOut(true);
       }, 10);
     };
 
-    router.events.on('routeChangeComplete', handleRouteChange); // Step 2
+    router.events.on('routeChangeComplete', handleRouteChange);
 
-    // Cleanup listener on unmount
     return () => {
       router.events.off('routeChangeComplete', handleRouteChange);
     };
@@ -44,15 +39,17 @@ const PageHero = props => {
 
   const styles = useStyleConfig('PageHero', { shouldZoomOut });
 
-  if (!props?.img?.cloudinaryId) {
+  if (!img?.cloudinaryId) {
     return <Box />;
   }
+
+  const imageUrl = `https://res.cloudinary.com/gonation/w_1600/q_auto/f_auto/${img.cloudinaryId}`;
 
   return (
     <Box
       pt=""
       overflow="hidden"
-      position="relative" // this ensures children with position:absolute are positioned inside this Box
+      position="relative"
       h={{
         base: '300px',
         md: '400px',
@@ -60,21 +57,25 @@ const PageHero = props => {
         xl: '600px',
       }}
     >
-      {/* Background div that will zoom */}
       <Box
         sx={styles.container}
-        background={`linear-gradient(to bottom, rgba(0,0,0,0.3) 0%, rgba(0,0,0,.3) 100%), url(https://res.cloudinary.com/gonation/w_1800/q_auto/f_auto/${props.img.cloudinaryId})`}
-        bgPos="center"
-        bgSize="cover"
-        h="100%" // this makes it take the full height of its parent
         position="absolute"
         w="100%"
+        h="100%"
+        top="0"
+        left="0"
         zIndex="0"
-        top="0" // ensure it starts at the top of its parent
-        left="0" // ensure it starts at the left of its parent
-      />
+      >
+        <Image
+          src={imageUrl}
+          quality={100} // Adjust quality as needed
+          alt={pageTitle} // Add a relevant alt description
+          width={1200}
+          height={800}
+          style={{ objectFit: 'cover' }}
+        />
+      </Box>
 
-      {/* Text content positioned on top */}
       <Flex
         direction="column"
         justify="flex-end"
@@ -87,7 +88,7 @@ const PageHero = props => {
         {withLogo && (
           <Link href="/" passHref>
             <ChakraLink mb="20">
-              <Image src="/logo.png" maxW="380px" w="full" />
+              <Image src="/logo.png" width={380} height={100} alt="Logo" />
             </ChakraLink>
           </Link>
         )}
@@ -95,20 +96,19 @@ const PageHero = props => {
           mt="16"
           fontSize={['3xl', '3xl', '4xl', '5xl']}
           color="white"
-          textTransform={'uppercase'}
-          textAlign={'center'}
+          textTransform="uppercase"
+          textAlign="center"
           fontWeight="bold"
         >
-          {props.pageTitle}
+          {pageTitle}
         </Heading>
-        {/* <PixiLine starColor="accent" /> */}
-        <Flex width={'300px'} mx={'auto'}>
-          <Box width={'56%'} height={5} bg={'black'}></Box>
-          <Box width={'20%'} height={5} bg={'primary'} mx={1}></Box>
-          <Box width={'24%'} height={5} bg={'black'}></Box>
+        <Flex width="300px" mx="auto">
+          <Box width="56%" height={5} bg="black"></Box>
+          <Box width="20%" height={5} bg="primary" mx={1}></Box>
+          <Box width="24%" height={5} bg="black"></Box>
         </Flex>
         <Text color="white" fontSize="md" mt="4" textAlign="center">
-          {props?.description}
+          {description}
         </Text>
       </Flex>
     </Box>

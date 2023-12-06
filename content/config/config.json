@@ -141,7 +141,7 @@
       "customPageHero": "contact-pagehero",
       "fetchingStrategy": "static",
       "dataTypes": {
-        "stories": true,
+        "stories": false,
         "poweredImages": true,
         "about": true,
         "gallery": true

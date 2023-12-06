@@ -1,17 +1,17 @@
 import { ChakraProvider } from '@chakra-ui/react';
 import Head from 'next/head';
 import theme from 'theme';
-import config from 'content/config/config.json';
+// import config from 'content/config/config.json';
 import 'styles/global.css';
 
-const { fonts } = config;
+// const { fonts } = config;
 
 function MyApp({ Component, pageProps }) {
-  const { googleFontsUrl, customFontName } = fonts;
+  //   const { googleFontsUrl, customFontName } = fonts;
 
   return (
     <ChakraProvider theme={theme}>
-      <Head>
+      {/* <Head>
         {googleFontsUrl && <link href={googleFontsUrl} rel="stylesheet" />}
         {customFontName && (
           <style>
@@ -26,7 +26,7 @@ function MyApp({ Component, pageProps }) {
 			`}
           </style>
         )}
-      </Head>
+      </Head> */}
       <Component {...pageProps} />
     </ChakraProvider>
   );

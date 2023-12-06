@@ -1,10 +1,9 @@
-import { Hero } from 'components/heros/Hero';
+import React, { lazy, Suspense } from 'react';
 import ExpandableShout from 'components/shout/ExpandableShout';
-import LargeContentContainer from 'components/story-components/LargeContentContainer';
 
 import findMultipleStoriesByNames from 'helpers/findMultipleStoriesByNames';
 import findStoryByName from 'helpers/findStoryByName';
-import SideBySideImage from './story-components/SideBySideImage';
+// import SideBySideImage from './story-components/SideBySideImage';
 import ParallaxContentContainer from './ParallaxContentContainer';
 import ClickableBoxes from './story-components/ClickableBoxes';
 import GridBoxes from './ui/GridBoxes';
@@ -12,17 +11,24 @@ import CustomModal from './ui/CustomModal';
 import Menu from './menu/Menu';
 import Masonry from './gallery/Masonry';
 import findStoriesByTag from 'helpers/general/findStoriesByTag';
-import CustomForm from './ui/common/CustomForm';
 import SimpleGrid from './story-components/SimpleGrid';
 import ContactPageLayout from './ui/ContactPageLayout';
 import InstagramWidget from './InstagramWidget';
-import NFTShowcase from './story-components/NFTShowcase';
 import CTAGrid from './story-components/CTAGrid';
 import Events from './events/Events';
 import MultiStoryHero from './story-components/MultiStoryHero';
 import AlbumGallery from './AlbumGallery';
-import HeroComponent from './HeroComponent';
 import BasicAbout from './BasicAbout';
+
+const HeroComponent = lazy(() => import('./HeroComponent'));
+const LargeContentContainer = lazy(() =>
+  import('components/story-components/LargeContentContainer')
+);
+const CustomForm = lazy(() => import('./ui/common/CustomForm'));
+const NFTShowcase = lazy(() => import('./story-components/NFTShowcase'));
+const SideBySideImage = lazy(() =>
+  import('./story-components/SideBySideImage')
+);
 
 const findEventById = (id, events) => {
   if (!events) return null;
@@ -39,22 +45,24 @@ const componentFactory = (componentConfig, commonData, siteConfig) => {
     case 'Hero':
       return (
         <>
-          <HeroComponent
-            story={findStoryByName(
-              componentConfig.storyName,
-              commonData.storiesData.general
-            )}
-            event={
-              componentConfig.eventId
-                ? findEventById(componentConfig.id, commonData.eventsData)
-                : null
-            }
-            showLogo={componentConfig.showLogo}
-            business={commonData.aboutData}
-            shout={commonData.shoutData?.shout}
-            config={componentConfig.config}
-            {...componentConfig}
-          />
+          <Suspense fallback={<div>Loading...</div>}>
+            <HeroComponent
+              story={findStoryByName(
+                componentConfig.storyName,
+                commonData.storiesData.general
+              )}
+              event={
+                componentConfig.eventId
+                  ? findEventById(componentConfig.id, commonData.eventsData)
+                  : null
+              }
+              showLogo={componentConfig.showLogo}
+              business={commonData.aboutData}
+              shout={commonData.shoutData?.shout}
+              config={componentConfig.config}
+              {...componentConfig}
+            />
+          </Suspense>
         </>
       );
     case 'ExpandableShout':
@@ -67,33 +75,37 @@ const componentFactory = (componentConfig, commonData, siteConfig) => {
       );
     case 'SideBySideImage':
       return (
-        <SideBySideImage
-          story={findStoryByName(
-            componentConfig.storyName,
-            commonData.storiesData.general
-          )}
-          //   todo replace data with story as this component should be able to take any data
-          data={commonData.shoutData}
-          config={componentConfig.config}
-        />
+        <Suspense fallback={<div>Loading...</div>}>
+          <SideBySideImage
+            story={findStoryByName(
+              componentConfig.storyName,
+              commonData.storiesData.general
+            )}
+            //   todo replace data with story as this component should be able to take any data
+            data={commonData.shoutData}
+            config={componentConfig.config}
+          />
+        </Suspense>
       );
     case 'LargeContentContainer':
       return (
-        <LargeContentContainer
-          isMultiStoryCompatable={componentConfig.tagName}
-          story={
-            componentConfig.tagName
-              ? findStoriesByTag(
-                  componentConfig.tagName,
-                  commonData.storiesData.general
-                )
-              : findStoryByName(
-                  componentConfig.storyName,
-                  commonData.storiesData.general
-                )
-          }
-          config={componentConfig.config}
-        />
+        <Suspense fallback={<div>Loading...</div>}>
+          <LargeContentContainer
+            isMultiStoryCompatable={componentConfig.tagName}
+            story={
+              componentConfig.tagName
+                ? findStoriesByTag(
+                    componentConfig.tagName,
+                    commonData.storiesData.general
+                  )
+                : findStoryByName(
+                    componentConfig.storyName,
+                    commonData.storiesData.general
+                  )
+            }
+            config={componentConfig.config}
+          />
+        </Suspense>
       );
     case 'ParallaxContentContainer':
       return (

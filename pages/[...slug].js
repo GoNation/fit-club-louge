@@ -75,6 +75,5 @@ export async function getStaticProps({ params }) {
 
   return {
     ...data,
-    revalidate: 10, // Revalidate after 10 seconds
   };
 }

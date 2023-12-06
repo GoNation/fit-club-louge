@@ -15,6 +15,7 @@ import { retrievePageHeroImage } from 'helpers';
 import RioFooter from './RioFooter';
 import ShoutModal from 'components/ui/ShoutModal';
 import { ModalProvider } from 'hooks/useModal';
+import FixedCallToActions from './FixedCallToActions';
 const WithLayout = Component => {
   return function WrappedComponent(props) {
     const { pathname, asPath } = useRouter();
@@ -77,6 +78,7 @@ const WithLayout = Component => {
         </main>
         <RioFooter business={aboutData} />
         <ShoutModal />
+        <FixedCallToActions business={aboutData} />
       </ModalProvider>
     );
   };

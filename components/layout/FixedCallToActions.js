@@ -1,68 +1,78 @@
-import React, { useState } from 'react';
-import Link from 'next/link';
-import { motion } from 'framer-motion';
-import getGoogleString from '../../helpers/printing/getGoogleString';
-import Shout from '../shout/Shout';
+import React from 'react';
+import { Box, Flex, Link } from '@chakra-ui/react';
+import getGoogleString from 'helpers/printing/getGoogleString';
 
-const FixedCallToActions = ({ business, shoutData }) => {
-  const [displayShout, setDisplayShout] = useState(false);
+const FixedCallToActions = ({ business }) => {
   const { phone } = business;
-  const linkClassList =
-    'font-body font-normal tracking-widest uppercase  text-xs bg-dark  w-full block py-3 z-40 font-bold text-white ';
-
-  const bottomCTA = 'text-center w-1/2 bg-dark text-white ';
 
   return (
-    <div className="fixed bottom-0 left-0 flex justify-center w-full flex-wrap z-20  ">
-      <div className="w-full flex flex-wrap bg-dark subtle-shadow rounded-md border-2 border-white">
-        {/* <div className="w-full text-center border-b-2 border-primary tracking-wide">
-          <Link href="/menus">
-            <a className={`${linkClassList} p-0 tracking-widest`}>View Menu</a>
-          </Link>
-        </div> */}
-
-        {shoutData ? (
-          //   <div
-          //     className="text-center w-full border-b-2 border-secondary"
-          //     onClick={() => setDisplayShout(!displayShout)}
-          //   >
-          //     <a className={`${linkClassList} !bg-primary !text-white`}>
-          //       Recent Shout
-          //     </a>
-          //   </div>
-          <></>
-        ) : (
-          ''
-        )}
-        {/* <motion.div
-          animate={{ height: displayShout ? 'auto' : 0 }}
-          transition={{ duration: 0.25 }}
-          className="w-full"
-        > */}
-        {/* <div className="text-center py-10 transition-all duration-1000 bg-background text-dark">
-            <Shout data={shoutData}></Shout>
-          </div> */}
-        {/* </motion.div> */}
-        <div className={`${bottomCTA}  border-r border-white`}>
-          <a
-            className={`${linkClassList} border-b-0 border-primary`}
+    <Flex
+      display={['flex', 'flex', 'none']}
+      position="fixed"
+      bottom="0"
+      left="0"
+      justifyContent="center"
+      width="full"
+      flexWrap="wrap"
+      zIndex="20"
+    >
+      <Flex
+        width="full"
+        flexWrap="wrap"
+        bg="dark"
+        boxShadow="md"
+        rounded="md"
+        border="2px"
+        borderColor="white"
+      >
+        <Box
+          textAlign="center"
+          width="50%"
+          bg="dark"
+          color="white"
+          borderRight="1px"
+          borderColor="white"
+          py="3"
+        >
+          <Link
             href={`tel:${phone}`}
+            display="block"
+            fontWeight="bold"
+            fontSize="xs"
+            textTransform="uppercase"
+            letterSpacing="widest"
+            textDecoration="none"
+            isExternal
           >
             Call
-          </a>
-        </div>
-        <div className={`${bottomCTA} border-l border-white`}>
-          <a
-            className={linkClassList}
+          </Link>
+        </Box>
+        <Box
+          textAlign="center"
+          width="50%"
+          bg="dark"
+          color="white"
+          borderLeft="1px"
+          borderColor="white"
+          py="3"
+        >
+          <Link
+            href={getGoogleString(business)}
+            display="block"
+            fontWeight="bold"
+            fontSize="xs"
+            textTransform="uppercase"
+            letterSpacing="widest"
+            textDecoration="none"
             target="_blank"
             rel="noopener noreferrer"
-            href={`${getGoogleString(business)}`}
+            isExternal
           >
             Directions
-          </a>
-        </div>
-      </div>
-    </div>
+          </Link>
+        </Box>
+      </Flex>
+    </Flex>
   );
 };
 

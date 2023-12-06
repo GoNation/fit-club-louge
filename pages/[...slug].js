@@ -10,18 +10,16 @@ const DynamicPage = ({ pageData, pageContent, siteConfig }) => {
 
   useEffect(() => {
     if (pageData) {
-      const attemptToImportConfigFile = layout => {
+      const loadLayoutConfig = async () => {
         try {
-          return require(`layouts/index`)[layout];
+          const layouts = await import(`layouts/index`);
+          setLayout(layouts[pageData.layout]);
         } catch (e) {
           console.error(e);
-          return null;
         }
       };
 
-      const layoutConfig =
-        pageData.layout && attemptToImportConfigFile(pageData.layout);
-      setLayout(layoutConfig);
+      loadLayoutConfig();
     }
   }, [pageData]);
 

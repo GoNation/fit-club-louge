@@ -68,10 +68,11 @@ const PageHero = props => {
       >
         <Image
           src={imageUrl}
-          quality={100} // Adjust quality as needed
+          quality={75} // Adjust quality as needed
           alt={pageTitle} // Add a relevant alt description
           style={{ objectFit: 'cover' }}
           layout="fill"
+          priority={true}
         />
       </Box>
 

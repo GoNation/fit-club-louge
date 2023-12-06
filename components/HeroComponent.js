@@ -2,7 +2,6 @@ import React from 'react';
 import { Box, Heading } from '@chakra-ui/react';
 import { BsChevronDown } from 'react-icons/bs';
 import { Carousel } from 'react-responsive-carousel';
-import Image from 'next/image';
 import 'react-responsive-carousel/lib/styles/carousel.min.css';
 
 import Shout from 'components/shout/Shout';

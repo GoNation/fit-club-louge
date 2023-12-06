@@ -11,12 +11,21 @@ export default function NavLogo({ logo, business }) {
   const logoWidth = isMobile ? 100 : 200;
   const logoHeight = isMobile ? 100 : 200;
 
+  const getTransformedLogoUrl = url => {
+    const baseUrl = 'https://res.cloudinary.com/gonation/';
+    const transformations = 'w_200,q_auto,f_auto';
+    const imagePath = url.split(baseUrl)[1];
+    return `${baseUrl}${transformations}/${imagePath}`;
+  };
+
+  const transformedLogo = getTransformedLogoUrl(logo);
+
   return (
     <Flex justifyContent="center" py={2} px={4} rounded="sm">
       <Box>
         <Link href={'/'}>
           <Image
-            src={logo}
+            src={transformedLogo}
             alt={business.name}
             width={logoWidth}
             height={logoHeight}

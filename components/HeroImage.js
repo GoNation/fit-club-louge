@@ -6,10 +6,10 @@ const HeroImage = ({ cloudinaryId, name, description, ...rest }) => (
     <Image
       key={cloudinaryId}
       alt={name || description}
-      src={`https://res.cloudinary.com/gonation/w_1800/q_auto/f_auto/${cloudinaryId}`}
+      src={`https://res.cloudinary.com/gonation/w_1600/q_auto/f_auto/${cloudinaryId}`}
       layout="fill" // This will make the image fill the container, adjust as needed
       objectFit="cover" // This corresponds to the CSS property object-fit
-      quality={90} // Adjust the quality as needed
+      quality={50} // Adjust the quality as needed
     />
   </Box>
 );

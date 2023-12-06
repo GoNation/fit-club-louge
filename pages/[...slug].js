@@ -63,8 +63,18 @@ export const getStaticPaths = async () => {
   };
 };
 
+// export async function getStaticProps({ params }) {
+//   const path =
+//     params.slug && params.slug.length > 0 ? `/${params.slug.join('/')}` : '/';
+//   return fetchPageData(path);
+// }
 export async function getStaticProps({ params }) {
   const path =
     params.slug && params.slug.length > 0 ? `/${params.slug.join('/')}` : '/';
-  return fetchPageData(path);
+  const data = await fetchPageData(path);
+
+  return {
+    ...data,
+    revalidate: 10, // Revalidate after 10 seconds
+  };
 }

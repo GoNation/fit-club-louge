@@ -259,6 +259,18 @@ const networkingEventsLayout = [
   },
 ];
 
+export const allLayouts = {
+  homepageLayout,
+  aboutLayout,
+  menuLayout,
+  galleryLayout,
+  contactLayout,
+  eventsLayout,
+  kidsPartiesLayout,
+  corporateEventsLayout,
+  networkingEventsLayout,
+};
+
 export {
   homepageLayout,
   //   aboutLayout,

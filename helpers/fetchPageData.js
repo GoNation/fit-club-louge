@@ -1,5 +1,6 @@
 import client from 'tina/__generated__/client';
 import fetchGoNationData from './fetchers/fetchGoNationData';
+import { allLayouts } from 'layouts';
 
 const fetchDataFlags = async (pageConfig, businessId, poweredId) => {
   let dataFlags = {};
@@ -30,6 +31,8 @@ export const fetchPageData = async path => {
     pageData = await fetchDataFlags(pageConfig, businessId, poweredId);
   }
 
+  const layoutConfig = allLayouts[pageConfig.layout] || null;
+
   return {
     props: {
       pageData,
@@ -37,6 +40,7 @@ export const fetchPageData = async path => {
       pageContent: pageData,
       routes: cmsRoutes,
       siteConfig: pagesToBeRendered?.data?.siteConfig,
+      layout: layoutConfig,
     },
   };
 };

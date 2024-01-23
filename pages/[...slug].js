@@ -4,25 +4,9 @@ import { useEffect, useState } from 'react';
 import componentFactory from 'components/ComponentFactory';
 import client from 'tina/__generated__/client';
 import { fetchPageData } from 'helpers/fetchPageData';
+import { allLayouts } from 'layouts/index';
 
-const DynamicPage = ({ pageData, pageContent, siteConfig }) => {
-  const [layout, setLayout] = useState(null);
-
-  useEffect(() => {
-    if (pageData) {
-      const loadLayoutConfig = async () => {
-        try {
-          const layouts = await import(`layouts/index`);
-          setLayout(layouts[pageData.layout]);
-        } catch (e) {
-          console.error(e);
-        }
-      };
-
-      loadLayoutConfig();
-    }
-  }, [pageData]);
-
+const DynamicPage = ({ pageData, pageContent, siteConfig, layout }) => {
   if (!pageData) {
     return <div>Page not found!</div>;
   }
